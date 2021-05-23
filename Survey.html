@@ -1,0 +1,61 @@
+<title> SEG 3525 Survey </title>
+
+<head><link rel="stylesheet" type="text/css" href="survey_style.css"></head>
+
+<h1 id="title">Sondage sur Youtube </h1>
+
+<body>
+<p> Que pensez vous de l'IU de  <a href="https://www.youtube.com/">Youtube</a>? </p>
+
+<a href="https://www.youtube.com/"><img src="youtube-image.png" alt="Logo youtube" height=400 width =500/></a> </br>
+
+<form>
+<div class="Question">
+<h1> Vos informations personnelles</h1>
+<label for="nom">Nom :</label><input type="text" id="nom" /><br />
+<label for="prenom">Prénom :</label><input type="text" id="prenom" /><br />
+ 
+Sexe:</br>
+
+<input type="radio" id="homme" name="sexe" value="homme">
+<label for="homme">Homme</label>
+<input type="radio" id="femme" name="sexe" value="femme">
+<label for="femme">Femme</label>
+<input type="radio" id="autre" name="sexe" value="autre">
+<label for="other">Autre</label>
+
+</div>
+
+<div class="Question">
+<h1>Votre utlisation de Youtube </h1>
+
+<strong>Combien de temps passez-vous sur Youtube au quotidien?</strong></br>
+<select id="time">
+<option value="<1h/jour">1h/jour</option>
+<option value="1et3h/jour">de 1à3h/jour</option>
+<option value=">3h/jour">3h/jour</option>
+</select>
+
+</br>
+</br>
+<strong> Quel type de contenu consommez-vous majoritairement?</strong> </br>
+<input type="checkbox" name="type" value="Éducatif"> Éducatif </br>
+<input type="checkbox" name="type" value="Divertissement"> Divertissement </br>
+<input type="checkbox" name="type" value="Podcast"> Podcast </br>
+<input type="checkbox" name="type" value="Actualité"> Actualité </br>
+<input type="checkbox" name="type" value="Autre"> Autre </br>
+
+</div>
+
+</br>
+</br>
+Commentaires:</br>
+<textarea rows="8" cols="60"></textarea>
+</br>
+</br>
+<button id="submitButton" class="block" type="button"> Soumettre votre questionnaire </button>
+<p id="myName"> Auteur: Nugget </p>
+
+</form>
+
+</body>

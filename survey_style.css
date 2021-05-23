@@ -1,0 +1,50 @@
+body{
+text-align:center;
+background-color:lightgrey;
+font-family:verdana;
+font-size: 15px;
+}
+
+h1{
+color:darkgrey;
+}
+
+.Question{
+background-color: lightblue;
+margin-right: 200px;
+margin-left: 200px;
+}
+
+#submitButton {
+  background-color: darkblue;
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+}
+
+#title{
+color: navy;
+text-decoration:underline overline;
+}
+
+#myName{
+text-align:right;
+color:navy;
+text-decoration:underline;
+text-decoration-style:wavy;
+}
+
+label{
+display:inline-block;
+}
+
+input{
+display:inline-block;
+position: relative;
+left: 40 px;
+}
+

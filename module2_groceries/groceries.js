@@ -11,7 +11,7 @@ var products = [
 	},
 	{
 		name: "Bread - $2.35",
-		nonDairy: true,
+		nonDairy: false,
 		noNuts: true,
     organic:false,
 		price: 2.35
@@ -84,16 +84,36 @@ function restrictListProducts(prods, restriction) {
 	let product_names = [];
 	for (let i=0; i<prods.length; i+=1) {
 		if ((restriction == "Lactose intolerant") && (prods[i].nonDairy == true)){
-			product_names.push(prods[i].name);
+			if (!document.getElementById("organic").checked){
+				product_names.push(prods[i].name);
+			}
+			else if (prods[i].organic == true){
+					product_names.push(prods[i].name);
+				}
 		}
 	  else if ((restriction == "Allergic to nuts") && (prods[i].noNuts == true)){
-			product_names.push(prods[i].name);
+			if (!document.getElementById("organic").checked){
+				product_names.push(prods[i].name);
+			}
+			else if (prods[i].organic == true){
+					product_names.push(prods[i].name);
+				}
 		}
-    else if ((restriction == "Organic") && (prods[i].organic == true)){
-			product_names.push(prods[i].name);
+    else if ((restriction == "Both") && (prods[i].nonDairy == true) && (prods[i].noNuts == true)){
+			if (!document.getElementById("organic").checked){
+				product_names.push(prods[i].name);
+			}
+			else if (prods[i].organic == true){
+					product_names.push(prods[i].name);
+				}
 		}
 		else if (restriction == "None"){
-			product_names.push(prods[i].name);
+			if (!document.getElementById("organic").checked){
+				product_names.push(prods[i].name);
+			}
+			else if (prods[i].organic == true){
+					product_names.push(prods[i].name);
+				}
 		}
 	}
 	return product_names;

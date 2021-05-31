@@ -30,6 +30,7 @@ color: #8f001a;
 /* Change background color of buttons on hover */
 .tab button:hover {
   background-color: #8f001a;
+  cursor:pointer;
 }
 
 /* Create an active/current tablink class */
@@ -64,4 +65,15 @@ body{
   background-color: #8f001a;
   color:#f1f1f1;
   padding: 5px 12px;
+}
+#addCart:hover{
+  cursor:pointer;
+}
+
+#dietSelect:hover{
+  cursor:pointer;
+}
+
+input[type='checkbox']{
+  cursor:pointer;
 }

@@ -83,16 +83,16 @@ var products = [
 function restrictListProducts(prods, restriction) {
 	let product_names = [];
 	for (let i=0; i<prods.length; i+=1) {
-		if ((getElementById("dietSelect1").checked) && (prods[i].nonDairy == true)){
+		if ((restriction == "Lactose intolerant") && (prods[i].nonDairy == true)){
 			product_names.push(prods[i].name);
 		}
-	  if (((getElementById("dietSelect2").checked) && (prods[i].glutenFree == true)){
+	  else if ((restriction == "Allergic to nuts") && (prods[i].noNuts == true)){
 			product_names.push(prods[i].name);
 		}
-    if (((getElementById("dietSelect3").checked) && (prods[i].organic == true)){
+    else if ((restriction == "Organic") && (prods[i].organic == true)){
 			product_names.push(prods[i].name);
 		}
-		if !((getElementById("dietSelect1").checked) && (getElementById("dietSelect2").checked) && (getElementById("dietSelect3").checked)){
+		else if (restriction == "None"){
 			product_names.push(prods[i].name);
 		}
 	}

@@ -57,7 +57,7 @@ var products = [
     noNuts: true,
     organic:false,
     price: 1.35
-  }
+  },
   {
     name: "carrots",
     nonDairy: true,
@@ -90,6 +90,7 @@ function restrictListProducts(prods, restriction) {
 			product_names.push(prods[i].name);
 		}
     else if ((restriction == "Organic") && (prods[i].organic == true)){
+			prods[i].style.backgroundColor= "green";
 			product_names.push(prods[i].name);
 		}
 		else if (restriction == "None"){

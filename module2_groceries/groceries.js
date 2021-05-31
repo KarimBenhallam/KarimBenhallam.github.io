@@ -76,7 +76,7 @@ var products = [
 ];
 
 
-
+products.sort((a,b)=>(a.price>b.price?1:-1));
 // given restrictions provided, make a reduced list of products
 // prices should be included in this list, as well as a sort based on price
 
@@ -90,7 +90,6 @@ function restrictListProducts(prods, restriction) {
 			product_names.push(prods[i].name);
 		}
     else if ((restriction == "Organic") && (prods[i].organic == true)){
-			prods[i].style.backgroundColor= "green";
 			product_names.push(prods[i].name);
 		}
 		else if (restriction == "None"){

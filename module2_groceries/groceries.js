@@ -3,70 +3,70 @@
 
 var products = [
 	{
-		name: "brocoli",
+		name: "Broccoli - $2.99",
 		nonDairy: true,
 		noNuts: true,
     organic:true,
 		price: 2.99
 	},
 	{
-		name: "bread",
+		name: "Bread - 2.35$",
 		nonDairy: true,
 		noNuts: true,
     organic:false,
 		price: 2.35
 	},
 	{
-		name: "salmon",
+		name: "Salmon - $10.00",
 		nonDairy: true,
 		noNuts: true,
     organic:false,
 		price: 10.00
 	},
   {
-    name: "cookies",
+    name: "Cookies - $1.99",
     nonDairy: false,
     noNuts: false,
     organic:false,
     price: 1.99
   },
   {
-    name: "peanut butter",
+    name: "Peanut butter - $3.99",
     nonDairy: true,
     noNuts: false,
     organic:true,
     price: 3.99
   },
   {
-    name: "almond milk",
+    name: "Almond milk - $6.45",
     nonDairy: true,
     noNuts: false,
     organic:false,
     price: 6.45
   },
   {
-    name: "milk",
+    name: "Milk - $5.45",
     nonDairy: false,
     noNuts: true,
     organic:true,
     price: 5.45
   },
   {
-    name: "chocolate",
+    name: "Chocolate - $1.35",
     nonDairy: false,
     noNuts: true,
     organic:false,
     price: 1.35
   },
   {
-    name: "carrots",
+    name: "Carrots - $2.99",
     nonDairy: true,
     noNuts: true,
     organic:true,
     price: 2.99
   },
   {
-    name: "watermelon",
+    name: "Watermelon - $7.80",
     nonDairy: true,
     noNuts: true,
     organic:true,

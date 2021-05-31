@@ -10,7 +10,7 @@ var products = [
 		price: 2.99
 	},
 	{
-		name: "Bread - 2.35$",
+		name: "Bread - $2.35",
 		nonDairy: true,
 		noNuts: true,
     organic:false,

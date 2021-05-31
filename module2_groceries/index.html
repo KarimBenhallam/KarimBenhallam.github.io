@@ -6,7 +6,9 @@
 </head>
 
 <body>
+	<title> SuperGroceries </title>
 
+<header> SuperGroceries </header>
 <!-- Tab links, each one with an onclick event associated with it -->
 <div class="tab">
   <button class="tablinks" onclick="openInfo(event, 'Client')">Client</button>
@@ -18,13 +20,13 @@
 <div id="Client" class="tabcontent">
   <h3>Client Information</h3>
   <p>Tell us a bit about you.</p>
-	Choose a Category:
-	<select id="dietSelect" name="dietSelect" onchange="populateListProductChoices(this.id, 'displayProduct')">
-	<option value=""></option>
-	<option value="Vegetarian">Vegetarian</option>
-    <option value="GlutenFree">GlutenFree</option>
-    <option value="None">None</option>
-	</select>
+	Select all that apply: </br>
+<input type="checkbox" id="dietSelect" name="dietSelect" value="Lactose intolerant"
+onchange="populateListProductChoices(this.id, 'displayProduct')"> Lactose intolerant </br>
+<input type="checkbox" id="dietSelect" name="dietSelect" value="Allergic to nuts"
+onchange="populateListProductChoices(this.id, 'displayProduct')"> Allergic to nuts </br>
+<input type="checkbox" id="dietSelect" name="dietSelect" value="Organic" 
+onchange="populateListProductChoices(this.id, 'displayProduct')"> Preference for organic products </br>
 </div>
 
 <div id="Products" class="tabcontent">
@@ -42,6 +44,8 @@
   <p>Here is your cart.</p>
   <div id="displayCart"></div>
 </div>
+
+<p id="myName"> Auteur: Karim Benhallam </p>
 
 <script src="groceries.js"></script>
 <script src="main.js"></script>

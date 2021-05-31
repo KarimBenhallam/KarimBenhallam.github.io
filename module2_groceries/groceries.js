@@ -4,22 +4,75 @@
 var products = [
 	{
 		name: "brocoli",
-		vegetarian: true,
-		glutenFree: true,
-		price: 1.99
+		nonDairy: true,
+		noNuts: true,
+    organic:true,
+		price: 2.99
 	},
 	{
 		name: "bread",
-		vegetarian: true,
-		glutenFree: false,
+		nonDairy: true,
+		noNuts: true,
+    organic:false,
 		price: 2.35
 	},
 	{
 		name: "salmon",
-		vegetarian: false,
-		glutenFree: true,
+		nonDairy: true,
+		noNuts: true,
+    organic:false,
 		price: 10.00
-	}
+	},
+  {
+    name: "cookies",
+    nonDairy: false,
+    noNuts: false,
+    organic:false,
+    price: 1.99
+  },
+  {
+    name: "peanut butter",
+    nonDairy: true,
+    noNuts: false,
+    organic:true,
+    price: 3.99
+  },
+  {
+    name: "almond milk",
+    nonDairy: true,
+    noNuts: false,
+    organic:false,
+    price: 6.45
+  },
+  {
+    name: "milk",
+    nonDairy: false,
+    noNuts: true,
+    organic:true,
+    price: 5.45
+  },
+  {
+    name: "chocolate",
+    nonDairy: false,
+    noNuts: true,
+    organic:false,
+    price: 1.35
+  }
+  {
+    name: "carrots",
+    nonDairy: true,
+    noNuts: true,
+    organic:true,
+    price: 2.99
+  },
+  {
+    name: "watermelon",
+    nonDairy: true,
+    noNuts: true,
+    organic:true,
+    price: 7.80
+  }
+
 ];
 
 
@@ -30,13 +83,16 @@ var products = [
 function restrictListProducts(prods, restriction) {
 	let product_names = [];
 	for (let i=0; i<prods.length; i+=1) {
-		if ((restriction == "Vegetarian") && (prods[i].vegetarian == true)){
+		if ((getElementById("dietSelect1").checked) && (prods[i].nonDairy == true)){
 			product_names.push(prods[i].name);
 		}
-		else if ((restriction == "GlutenFree") && (prods[i].glutenFree == true)){
+	  if (((getElementById("dietSelect2").checked) && (prods[i].glutenFree == true)){
 			product_names.push(prods[i].name);
 		}
-		else if (restriction == "None"){
+    if (((getElementById("dietSelect3").checked) && (prods[i].organic == true)){
+			product_names.push(prods[i].name);
+		}
+		if !((getElementById("dietSelect1").checked) && (getElementById("dietSelect2").checked) && (getElementById("dietSelect3").checked)){
 			product_names.push(prods[i].name);
 		}
 	}

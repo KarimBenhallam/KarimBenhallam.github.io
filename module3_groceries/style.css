@@ -54,6 +54,11 @@ body{
   background-color: #e4e4e4;
 }
 
+#Main{
+  text-align: center;
+  font-size: 48px;
+}
+
 /* style of signature*/
 #myName{
   color:#8f001a;
@@ -69,6 +74,17 @@ body{
 #addCart:hover{
   cursor:pointer;
 }
+
+button{
+  background-color: #8f001a;
+  color:#f1f1f1;
+  padding: 5px 12px;
+}
+
+button:hover{
+  cursor:pointer;
+}
+
 
 #dietSelect:hover{
   cursor:pointer;

@@ -90,3 +90,7 @@ function selectedItems(){
 	c.appendChild(document.createTextNode("Total Price is " + getTotalPrice(chosenProducts)+'$'));
 
 }
+
+function hide(){
+	document.getElementById("Main").style.display = "none";
+}

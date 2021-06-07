@@ -15,20 +15,27 @@
 <div id="Client" class="tabcontent">
   <h3>Client filters</h3>
 	Choose a Category:
-<div id="dietSelect" name="dietSelect" onchange="populateListProductChoices(this.id, 'displayProduct')">
-	</br><label>Lactose intolerant:<input type="checkbox" id=lact  onclick="populateListProductChoices('dietSelect', 'displayProduct')"></label>
-	</br><label>Allergic to nuts:<input type="checkbox" id=nuts  onclick="populateListProductChoices('dietSelect', 'displayProduct')"></label>
-	</br><label>High protein:<input type="checkbox" id=prot  onclick="populateListProductChoices('dietSelect', 'displayProduct')"></label>
-	</br><label>Pescetarian:<input type="checkbox" id=pesc  onclick="populateListProductChoices('dietSelect', 'displayProduct')"></label>
-</br><label>Organic only:<input type="checkbox" id=organic  onclick="populateListProductChoices('dietSelect', 'displayProduct')"></label>
+<div id="dietSelect" name="dietSelect" onchange="populateListProductChoices('aisle', 'displayProduct')">
+</br><label>Lactose intolerant:<input type="checkbox" id=lact  onclick="populateListProductChoices('aisle', 'displayProduct')"></label>
+	</br><label>Allergic to nuts:<input type="checkbox" id=nuts  onclick="populateListProductChoices('aisle', 'displayProduct')"></label>
+	</br><label>High protein:<input type="checkbox" id=prot  onclick="populateListProductChoices('aisle', 'displayProduct')"></label>
+	</br><label>Pescetarian:<input type="checkbox" id=pesc  onclick="populateListProductChoices('aisle', 'displayProduct')"></label>
+</br><label>Organic only:<input type="checkbox" id=organic  onclick="populateListProductChoices('aisle', 'displayProduct')"></label>
 </div>
-<button id="addCart" type="button" class="block" onclick="openInfo(event, 'Products')"> Confirm selection</button>
+</br><select id="aisle" name="aisle" onchange="populateListProductChoices(this.id, 'displayProduct')">
+	<option value="All aisles"></option>
+	<option value="Bakery"> Bakery</option>
+    <option value="Meat"> Meat</option>
+		<option value="Produce" > Produce</option>
+    <option value="Refrigerated"> Refrigerated</option>
+	</select>
+</br><button id="addCart" type="button" class="block" onclick="openInfo(event, 'Products')"> Confirm selection</button>
 </div>
 
 
 <div id="Main">
   <h3>Welcome</h3>
-	<p> <button id="addCart" type="button" class="block" onclick="populateListProductChoices('dietSelect', 'displayProduct');openInfo(event, 'Products');hide();">
+	<p> <button id="addCart" type="button" class="block" onclick="populateListProductChoices('aisle', 'displayProduct');openInfo(event, 'Products');hide();">
 		Start Shopping
 	</button></p>
 </div>

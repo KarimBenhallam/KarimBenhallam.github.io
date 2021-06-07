@@ -9,7 +9,7 @@ var products = [
 		noNuts: true,
     organic:true,
 		price: 2.99,
-		aisle:'Produce';
+		aisle:'Produce',
 		protein: false
 	},
 	{
@@ -19,7 +19,7 @@ var products = [
 		noNuts: true,
     organic:false,
 		protein: false,
-		aisle:'Produce';
+		aisle:'Produce',
 		price: 2.35
 	},
 	{
@@ -29,7 +29,7 @@ var products = [
 		noNuts: true,
     organic:false,
 		protein: true,
-		aisle:'Meat';
+		aisle:'Meat',
 		price: 10.00
 	},
   {
@@ -39,7 +39,7 @@ var products = [
     noNuts: false,
     organic:false,
 		protein: false,
-		aisle:'Bakery';
+		aisle:'Bakery',
     price: 1.99
   },
   {
@@ -49,7 +49,7 @@ var products = [
     noNuts: false,
     organic:true,
 		protein: true,
-		aisle:'Produce';
+		aisle:'Produce',
     price: 3.99
   },
   {
@@ -59,7 +59,7 @@ var products = [
     noNuts: false,
     organic:false,
 		protein: false,
-		aisle:'Refrigerated';
+		aisle:'Refrigerated',
     price: 6.45
   },
   {
@@ -69,7 +69,7 @@ var products = [
     noNuts: true,
     organic:true,
 		protein: true,
-		aisle:'Refrigerated';
+		aisle:'Refrigerated',
     price: 5.45
   },
   {
@@ -79,7 +79,7 @@ var products = [
     noNuts: true,
     organic:false,
 		protein: false,
-		aisle:'Bakery';
+		aisle:'Bakery',
     price: 1.35
   },
   {
@@ -89,7 +89,7 @@ var products = [
     noNuts: true,
     organic:true,
 		protein: false,
-		aisle:'Produce';
+		aisle:'Produce',
     price: 2.99
   },
   {
@@ -99,7 +99,7 @@ var products = [
     noNuts: true,
     organic:true,
 		protein: false,
-		aisle:'Produce';
+		aisle:'Produce',
     price: 7.80
   },
 	{
@@ -109,7 +109,7 @@ var products = [
     noNuts: true,
     organic:true,
 		protein: true,
-		aisle:'Refrigerated';
+		aisle:'Refrigerated',
     price: 3.80
   },
 	{
@@ -119,7 +119,7 @@ var products = [
     noNuts: true,
     organic:false,
 		protein: true,
-		aisle:'Meat';
+		aisle:'Meat',
     price: 8.79
   },
 	{
@@ -129,7 +129,7 @@ var products = [
     noNuts: true,
     organic:false,
 		protein: true,
-		aisle:'Meat';
+		aisle:'Meat',
     price: 7.99
   }
 
@@ -144,7 +144,7 @@ function checkValue(v) {
 // given restrictions provided, make a reduced list of products
 // prices should be included in this list, as well as a sort based on price
 
-function restrictListProducts(prods, restriction) {
+function restrictListProducts(prods, aisle) {
 	let product_names = [];
 	for (let i=0; i<prods.length; i+=1) {
 		product_names.push(prods[i].name);
@@ -177,10 +177,31 @@ function restrictListProducts(prods, restriction) {
 				delete product_names[i];
 			}
 		}
+	  if (aisle=="Bakery"){
+	    if (prods[i].aisle!='Bakery' && prods[i].name==product_names[i]){
+	      delete product_names[i];
+	    }
+	  }
+	  else if (aisle=="Meat"){
+	    if (prods[i].aisle!='Meat' && prods[i].name==product_names[i]){
+	      delete product_names[i];
+	    }
 	}
+	else if (aisle=="Refrigerated"){
+	  if (prods[i].aisle!='Refrigerated' && prods[i].name==product_names[i]){
+	    delete product_names[i];
+	  }
+	}
+	else if (aisle=="Produce"){
+	  if (prods[i].aisle!='Produce' && prods[i].name==product_names[i]){
+	    delete product_names[i];
+	  }
+	}
+}
 	product_names=product_names.filter(checkValue);
 	return product_names;
 }
+
 
 // Calculate the total price of items, with received parameter being a list of products
 function getTotalPrice(chosenProducts) {

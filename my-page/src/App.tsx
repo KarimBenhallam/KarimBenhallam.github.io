@@ -1,24 +1,27 @@
 import React from 'react';
 import logo from './logo.svg';
 import './App.css';
+import 'primeicons/primeicons.css';
+import 'primereact/resources/themes/arya-orange/theme.css'
+import CustomMenu from './app-component/custom-menu';
+import About from '../src/app-component/about';
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+
+        
+        
+
+
 
 function App() {
-  return (
+  return (   
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <CustomMenu></CustomMenu>
+      <BrowserRouter>
+      <Routes>
+        <Route path="/about" element={<About/>}>
+        </Route>
+      </Routes>
+    </BrowserRouter>
     </div>
   );
 }

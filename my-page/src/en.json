@@ -1,0 +1,13 @@
+{
+    "home": "Home",
+    "about-me": "About Me",
+    "resume": "Resume",
+    "work-samples": "Work Samples",
+    "home_content": {
+        "h1": "Welcome to my personal website!",
+        "p1": "By entering this digital space, you will have an opportunity to get to know me under a different light than just my résumé.",
+        "p2": "This website serves as a platform for industry peers and professionals to see the many sides of me. It's made to help them understand both what I'm good at for work and what kind of person I am transcending the confines of a conventional two-page resume.",
+        "p3": "While resumes are undoubtedly valuable documents, they may sometimes fall short in providing a comprehensive representation of an individual. This website aims to present a more complete portrait of who I am as a professional and as a person.",
+        "p4": "I hope you enjoy browsing my web page. Please feel free to have a look at my GitHub {insert link} and reach out via LinkedIn {insert linkedIn) or email {insert email} if you have any questions."
+    }
+}

@@ -3,6 +3,7 @@ import { TabView, TabPanel } from 'primereact/tabview';
 
 
 const About = () => {
+    
 return(
 <TabView>
     <TabPanel header="Overview" leftIcon="pi pi-search">
@@ -13,7 +14,7 @@ return(
             Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
         </p>
     </TabPanel>
-    <TabPanel header="More about me" leftIcon="pi pi-plus ml-1">
+    <TabPanel header="More about me" leftIcon="pi pi-plus">
         <p className="m-0">
             Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, 
             eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo

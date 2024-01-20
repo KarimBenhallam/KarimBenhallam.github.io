@@ -19,7 +19,7 @@ const CustomMenu = () => {
         {
           label: getTextFromJSON(language, 'about-me'),
           icon: 'pi pi-user',
-          url: '/about'
+          url: 'about'
         },
         {
           label: getTextFromJSON(language, 'resume'),

@@ -5,10 +5,7 @@
     "work-samples": "Échantillons de Travail",
     "home_content": {
         "h1": "Bienvenue sur mon site personnel !",
-        "p1": "En entrant dans cet espace numérique, vous aurez l'opportunité de mieux me connaître sous un angle différent de celui de mon Curriculum Vitae.",
-        "p2": "Ce site sert de plateforme à mes pairs et aux professionnels de l'industrie pour découvrir les différentes facettes de ma personnalité. Il vise à les aider à comprendre à la fois mes compétences professionnelles et inter-personnelles, au-delà des limites d'un CV conventionnel.",
-        "p3": "Bien que les CV soient indéniablement des documents précieux, ils peuvent parfois ne pas offrir la représentation complète d'un individu. Ce site vise à présenter un portrait plus complet de qui je suis en tant que personne et en tant que professionel.",
-        "p4": "J'espère que vous apprécierez de naviguer sur ma page web. N'hésitez pas à consulter mon GitHub {insert link} et à me contacter via LinkedIn {insert linkedIn) ou par courriel {insert email} si vous avez des questions."
+        "intro": "<p>En entrant dans cet espace numérique, vous aurez l'opportunité de mieux me connaître sous un angle différent de celui de mon Curriculum Vitae.</p> <p> Ce site sert de plateforme à mes pairs et aux professionnels de l'industrie pour découvrir les différentes facettes de ma personnalité. Il vise à les aider à comprendre à la fois mes compétences professionnelles et inter-personnelles, au-delà des limites d'un CV conventionnel. </p><p> Bien que les CV soient indéniablement des documents précieux, ils peuvent parfois ne pas offrir la représentation complète d'un individu. Ce site vise à présenter un portrait plus complet de qui je suis en tant que personne et en tant que professionel. </p><p> J'espère que vous apprécierez de naviguer sur ma page web. N'hésitez pas à consulter mon <a href=\"https://github.com/KarimBenhallam/KarimBenhallam.github.io\">GitHub</a> et à me contacter via <a href=\"https://www.linkedin.com/in/karim-benhallam-192a84196/\">LinkedIn</a> ou par <a href=\"mailto:karimbenhallam21@gmail.com\">courriel</a> si vous avez des questions. </p>"
     },
     "about_content": {
         "overview": "Aperçu professionnel",

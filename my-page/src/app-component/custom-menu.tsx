@@ -24,6 +24,7 @@ const CustomMenu = () => {
         {
           label: getTextFromJSON(language, 'resume'),
           icon: 'pi pi-file-pdf',
+          url: 'resume'
         },
         {
           label: getTextFromJSON(language, 'work-samples'),

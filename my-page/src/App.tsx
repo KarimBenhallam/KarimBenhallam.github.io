@@ -8,6 +8,7 @@ import About from '../src/app-component/about';
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Home from './app-component/home';
 import LanguageContextProvider from './contexts/language-context';
+import Resume from './app-component/resume';
 
 
 
@@ -24,6 +25,7 @@ function App() {
           <Routes>
             <Route path="/about" element={<About />}></Route>
             <Route path='/' element={<Home />}></Route>
+            <Route path='/resume' element={<Resume />}></Route>
           </Routes>
         </BrowserRouter>
       </LanguageContextProvider>

@@ -1,4 +1,4 @@
-import React, { useRef } from 'react';
+import React, { useRef, useState } from 'react';
 import { TabView, TabPanel } from 'primereact/tabview';
 import { Card } from 'primereact/card';
 import { useLanguageContext } from '../contexts/language-context';
@@ -12,9 +12,15 @@ import { classNames } from 'primereact/utils';
 const About = () => {
     const context = useLanguageContext();
 
+    //useState makes it clear which tab is active, preventing bugs with the animations
+    const [activeIndex, setActiveIndex] = useState(0);
+
+
+    //tab titles
     const overview = getTextFromJSON(context.language, "about_content.overview");
     const more = getTextFromJSON(context.language, "about_content.more");
 
+    //1st tab content
     const wcc_title = getTextFromJSON(context.language, "about_content.wcc_title");
     const wdev_title = getTextFromJSON(context.language, "about_content.wdev_title");
     const fstack_title = getTextFromJSON(context.language, "about_content.fstack_title");
@@ -27,6 +33,7 @@ const About = () => {
     const capstone = getTextFromJSON(context.language, "about_content.capstone");
     const ra = getTextFromJSON(context.language, "about_content.ra");
 
+    //1st tab refs and bools
     const wcc_ref = useRef(null);
     const wdev_ref = useRef(null);
     const fstack_ref = useRef(null);
@@ -39,13 +46,20 @@ const About = () => {
     const capstone_visible = useIntersectionObserver(capstone_ref);
     const ra_visible = useIntersectionObserver(ra_ref);
 
+    //2nd tab content
+
+
+    //2nd tab refs and bools
+
+
     return (
-        <TabView>
+        <TabView activeIndex={activeIndex} onTabChange={e => setActiveIndex(e.index)}>
             <TabPanel header={overview} leftIcon="pi pi-search mr-2">
                 <Card title={wcc_title} ref={wcc_ref} className={classNames('col-6 bg-gray-800 shadow-8', {'fadeinleft animation-duration-1000 animation-iteration-1' : wcc_visible},
                  {'fadeoutleft animation-duration-1000 animation-iteration-1' : !wcc_visible})}>
                     <img src="./uottawa.png" alt='' className='mb-1 right-100 sticky max-h-4rem max-w-4rem' />
                     <div dangerouslySetInnerHTML={{ __html: wcc! }} />
+                    
                 </Card>
                 <Card title={wdev_title} ref={wdev_ref} className={classNames('col-offset-6 bg-gray-800 shadow-8',  {'fadeinright animation-duration-1000 animation-iteration-1': wdev_visible},
                 {'fadeoutright animation-duration-1000 animation-iteration-1': !wdev_visible})}>

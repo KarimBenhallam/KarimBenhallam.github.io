@@ -29,6 +29,7 @@ const CustomMenu = () => {
         {
           label: getTextFromJSON(language, 'work-samples'),
           icon: 'pi pi-file-edit',
+          url : 'work-samples'
         },
       ];
 

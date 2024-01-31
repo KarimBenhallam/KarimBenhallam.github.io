@@ -91,13 +91,22 @@ const About = () => {
         './about_images/amrabat.webp',
     ];
 
+    const me_images: string[] = [
+        './about_images/duo.jpg',
+        './about_images/bday.webp',
+        './about_images/dogs.jpg',
+        './about_images/glasses.jpg',
+    ];
+
     //2nd tab content
     const morocco_title = getTextFromJSON(context.language, "about_content.morocco_title");
+    const me_title = getTextFromJSON(context.language, "about_content.me_title");
     const soccer_title = getTextFromJSON(context.language, "about_content.soccer_title");
     const gym_title = getTextFromJSON(context.language, "about_content.gym_title");
 
 
     const morocco = getTextFromJSON(context.language, "about_content.morocco");
+    const me = getTextFromJSON(context.language, "about_content.me")
     const soccer = getTextFromJSON(context.language, "about_content.soccer");
     const gym = getTextFromJSON(context.language, "about_content.gym");
 
@@ -105,11 +114,13 @@ const About = () => {
 
     //2nd tab refs and bools
     const morocco_ref = useRef(null);
+    const me_ref = useRef(null);
     const soccer_ref = useRef(null);
     const gym_ref = useRef(null);
 
 
     const morocco_visible = useIntersectionObserver(morocco_ref);
+    const me_visible = useIntersectionObserver(me_ref);
     const soccer_visible = useIntersectionObserver(soccer_ref);
     const gym_visible = useIntersectionObserver(gym_ref);
 
@@ -158,8 +169,20 @@ const About = () => {
                             </div>
                         </div>
                 </Card>
-                <Card title={soccer_title} ref={soccer_ref} className={classNames('col-offset-5 bg-gray-800 shadow-8 mb-2', { 'fadeinright animation-duration-1000 animation-iteration-1': soccer_visible },
-                    { 'fadeoutright animation-duration-1000 animation-iteration-1': !soccer_visible })}>
+                <Card title={me_title} ref={me_ref} className={classNames('col-offset-5 bg-gray-800 shadow-8 mb-2', { 'fadeinright animation-duration-1000 animation-iteration-1': me_visible },
+                    { 'fadeoutright animation-duration-1000 animation-iteration-1': !me_visible })}>
+                        <div className='grid'>
+                            <div className='col-6'>
+                        <div dangerouslySetInnerHTML={{ __html: me! }} />
+                            </div>
+                            <div className='col'>
+                    <Carousel value={me_images} numVisible={1} numScroll={1} className="custom-carousel" circular
+                        autoplayInterval={1500} itemTemplate={imageTemplate} />
+                            </div>
+                        </div>
+                </Card>
+                <Card title={soccer_title} ref={soccer_ref} className={classNames('col-7 bg-gray-800 shadow-8 mb-2', { 'fadeinleft animation-duration-1000 animation-iteration-1': soccer_visible },
+                    { 'fadeoutleft animation-duration-1000 animation-iteration-1': !soccer_visible })}>
                         <div className='grid'>
                             <div className='col-6'>
                         <div dangerouslySetInnerHTML={{ __html: soccer! }} />
@@ -170,8 +193,8 @@ const About = () => {
                             </div>
                         </div>
                 </Card>
-                <Card title={gym_title} ref={gym_ref} className={classNames('col-7 bg-gray-800 shadow-8', { 'fadeinleft animation-duration-1000 animation-iteration-1': gym_visible },
-                    { 'fadeoutleft animation-duration-1000 animation-iteration-1': !gym_visible })}>
+                <Card title={gym_title} ref={gym_ref} className={classNames('col-offset-5 bg-gray-800 shadow-8', { 'fadeinright animation-duration-1000 animation-iteration-1': gym_visible },
+                    { 'fadeoutright animation-duration-1000 animation-iteration-1': !gym_visible })}>
                         <div className='grid'>
                             <div className='col-6'>
                         <div dangerouslySetInnerHTML={{ __html: gym! }} />

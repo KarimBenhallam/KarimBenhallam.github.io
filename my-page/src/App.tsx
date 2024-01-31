@@ -7,29 +7,33 @@ import CustomMenu from './app-component/custom-menu';
 import About from '../src/app-component/about';
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Home from './app-component/home';
-import LanguageContextProvider from './contexts/language-context';
+import LanguageContextProvider, { Language, useLanguageContext } from './contexts/language-context';
 import Resume from './app-component/resume';
 import Work from './app-component/work-samples';
+import ContentContextProvider, { Content, useContentContext } from './contexts/content_context';
+import { classNames } from 'primereact/utils';
+import DisplayContent from './app-component/display-content';
 
 
+// const {content, setContent} = useContentContext()
+// const {language, setLanguage} = useLanguageContext() 
 
 
 
 
 
 function App() {
+  var language : Language = 'en';
+  var content : Content = 'home';
+  
+  const getData = (data : {language : Language, content : Content}) => {language = data.language; content = data.content}
   return (
     <div className="App">
-      <LanguageContextProvider>
-        <CustomMenu></CustomMenu>
-        <BrowserRouter>
-          <Routes>
-            <Route path="/about" element={<About />}></Route>
-            <Route path='/' element={<Home />}></Route>
-            <Route path='/resume' element={<Resume />}></Route>
-            <Route path='/work-samples' element={<Work />}></Route>
-          </Routes>
-        </BrowserRouter>
+      <LanguageContextProvider defaultLanguage={language}>
+        <ContentContextProvider>
+        <CustomMenu onShareData = {getData} />
+        <DisplayContent/>
+        </ContentContextProvider>
       </LanguageContextProvider>
     </div>
   );

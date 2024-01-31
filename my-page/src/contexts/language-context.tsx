@@ -4,6 +4,8 @@ export type Language = "en" | "fr";
 
 interface LanguageContextProviderProps {
   children: ReactNode;
+  defaultLanguage: Language;
+  //added the defaultLanguage prop in order to keep the application consistent troughout different components
 }
 
 export type LanguageContext = {
@@ -13,8 +15,8 @@ export type LanguageContext = {
 
 export const LanguageContext = createContext<LanguageContext| null>(null);
 
-export default function LanguageContextProvider({ children }: LanguageContextProviderProps) {
-  const [language, setLanguage] = useState<Language>("en");
+export default function LanguageContextProvider({ children, defaultLanguage }: LanguageContextProviderProps) {
+  const [language, setLanguage] = useState<Language>(defaultLanguage);
 
   return (
     <LanguageContext.Provider value={{ language, setLanguage }}>

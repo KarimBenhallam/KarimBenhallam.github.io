@@ -1,9 +1,9 @@
 import { classNames } from "primereact/utils";
 import { useContentContext } from "../contexts/content_context";
-import Home from "./home";
-import About from "./about";
-import Resume from "./resume";
-import Work from "./work-samples";
+import Home from "./app-content/home";
+import About from "./app-content/about";
+import Resume from "./app-content/resume";
+import Work from "./app-content/work-samples";
 
 const DisplayContent = () => {
     const { content, setContent } = useContentContext();

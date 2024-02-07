@@ -4,12 +4,12 @@ import './App.css';
 import 'primeicons/primeicons.css';
 import 'primereact/resources/themes/arya-orange/theme.css'
 import CustomMenu from './app-component/custom-menu';
-import About from '../src/app-component/about';
+import About from './app-component/app-content/about';
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import Home from './app-component/home';
+import Home from './app-component/app-content/home';
 import LanguageContextProvider, { Language, useLanguageContext } from './contexts/language-context';
-import Resume from './app-component/resume';
-import Work from './app-component/work-samples';
+import Resume from './app-component/app-content/resume';
+import Work from './app-component/app-content/work-samples';
 import ContentContextProvider, { Content, useContentContext } from './contexts/content_context';
 import { classNames } from 'primereact/utils';
 import DisplayContent from './app-component/display-content';

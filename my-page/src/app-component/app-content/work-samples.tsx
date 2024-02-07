@@ -10,7 +10,7 @@ const Work = () => {
       // PythonShell.run('./work_samples/snake.py').then(messages => {
       //     console.log('finished');
       // });
-      window.open("http://localhost:8000", "snakeFrame")
+      window.open("https://karimbenhallam.com/work_samples/snake/build/web/index.html", "snakeFrame")
   };
 
 

@@ -1,0 +1,14 @@
+C:\Users\Karim\Desktop\Personal Projects\KarimBenhallam.github.io\C#Project\BallonDorEntities\bin\Debug\net8.0\BallonDorEntities.deps.json
+C:\Users\Karim\Desktop\Personal Projects\KarimBenhallam.github.io\C#Project\BallonDorEntities\bin\Debug\net8.0\BallonDorEntities.dll
+C:\Users\Karim\Desktop\Personal Projects\KarimBenhallam.github.io\C#Project\BallonDorEntities\bin\Debug\net8.0\BallonDorEntities.pdb
+C:\Users\Karim\Desktop\Personal Projects\KarimBenhallam.github.io\C#Project\BallonDorEntities\obj\Debug\net8.0\BallonDorEntities.Properties.Resources.resources
+C:\Users\Karim\Desktop\Personal Projects\KarimBenhallam.github.io\C#Project\BallonDorEntities\obj\Debug\net8.0\BallonDorEntities.csproj.GenerateResource.cache
+C:\Users\Karim\Desktop\Personal Projects\KarimBenhallam.github.io\C#Project\BallonDorEntities\obj\Debug\net8.0\BallonDorEntities.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Karim\Desktop\Personal Projects\KarimBenhallam.github.io\C#Project\BallonDorEntities\obj\Debug\net8.0\BallonDorEntities.AssemblyInfoInputs.cache
+C:\Users\Karim\Desktop\Personal Projects\KarimBenhallam.github.io\C#Project\BallonDorEntities\obj\Debug\net8.0\BallonDorEntities.AssemblyInfo.cs
+C:\Users\Karim\Desktop\Personal Projects\KarimBenhallam.github.io\C#Project\BallonDorEntities\obj\Debug\net8.0\BallonDorEntities.csproj.CoreCompileInputs.cache
+C:\Users\Karim\Desktop\Personal Projects\KarimBenhallam.github.io\C#Project\BallonDorEntities\obj\Debug\net8.0\BallonDorEntities.sourcelink.json
+C:\Users\Karim\Desktop\Personal Projects\KarimBenhallam.github.io\C#Project\BallonDorEntities\obj\Debug\net8.0\BallonDorEntities.dll
+C:\Users\Karim\Desktop\Personal Projects\KarimBenhallam.github.io\C#Project\BallonDorEntities\obj\Debug\net8.0\refint\BallonDorEntities.dll
+C:\Users\Karim\Desktop\Personal Projects\KarimBenhallam.github.io\C#Project\BallonDorEntities\obj\Debug\net8.0\BallonDorEntities.pdb
+C:\Users\Karim\Desktop\Personal Projects\KarimBenhallam.github.io\C#Project\BallonDorEntities\obj\Debug\net8.0\ref\BallonDorEntities.dll

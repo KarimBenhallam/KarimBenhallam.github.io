@@ -1,0 +1,471 @@
+[
+  {
+    "year": "1956",
+    "winnerFirstName": "Stanley",
+    "winnerLastName": "Matthews",
+    "winnerPosition": "attacker",
+    "winnerFullName": "Stanley Matthews"
+  },
+  {
+    "year": "1957",
+    "winnerFirstName": "Alfredo",
+    "winnerLastName": "Di Stefano",
+    "winnerPosition": "attacker",
+    "winnerFullName": "Alfredo Di Stefano"
+  },
+  {
+    "year": "1958",
+    "winnerFirstName": "Raymond",
+    "winnerLastName": "Kopa",
+    "winnerPosition": "attacker",
+    "winnerFullName": "Raymond Kopa"
+  },
+  {
+    "year": "1959",
+    "winnerFirstName": "Alfredo",
+    "winnerLastName": "Di Stefano",
+    "winnerPosition": "attacker",
+    "winnerFullName": "Alfredo Di Stefano"
+  },
+  {
+    "year": "1960",
+    "winnerFirstName": "Luis",
+    "winnerLastName": "Suarez",
+    "winnerPosition": "attacker",
+    "winnerFullName": "Luis Suarez"
+  },
+  {
+    "year": "1961",
+    "winnerFirstName": "Omar",
+    "winnerLastName": "Sivori",
+    "winnerPosition": "attacker",
+    "winnerFullName": "Omar Sivori"
+  },
+  {
+    "year": "1962",
+    "winnerFirstName": "Josef",
+    "winnerLastName": "Masopust",
+    "winnerPosition": "midfielder",
+    "winnerFullName": "Josef Masopust"
+  },
+  {
+    "year": "1963",
+    "winnerFirstName": "Lev",
+    "winnerLastName": "Yashin",
+    "winnerPosition": "goalkeeper",
+    "winnerFullName": "Lev Yashin"
+  },
+  {
+    "year": "1964",
+    "winnerFirstName": "Denis",
+    "winnerLastName": "Law",
+    "winnerPosition": "attacker",
+    "winnerFullName": "Denis Law"
+  },
+  {
+    "year": "1965",
+    "winnerFirstName": "Eusebio",
+    "winnerLastName": "da Silva Ferreira",
+    "winnerPosition": "attacker",
+    "winnerFullName": "Eusebio da Silva Ferreira"
+  },
+  {
+    "year": "1966",
+    "winnerFirstName": "Bobby",
+    "winnerLastName": "Charlton",
+    "winnerPosition": "midfielder",
+    "winnerFullName": "Bobby Charlton"
+  },
+  {
+    "year": "1967",
+    "winnerFirstName": "Florian",
+    "winnerLastName": "Albert",
+    "winnerPosition": "attacker",
+    "winnerFullName": "Florian Albert"
+  },
+  {
+    "year": "1968",
+    "winnerFirstName": "George",
+    "winnerLastName": "Best",
+    "winnerPosition": "attacker",
+    "winnerFullName": "George Best"
+  },
+  {
+    "year": "1969",
+    "winnerFirstName": "Gianni",
+    "winnerLastName": "Rivera",
+    "winnerPosition": "midfielder",
+    "winnerFullName": "Gianni Rivera"
+  },
+  {
+    "year": "1970",
+    "winnerFirstName": "Gerd",
+    "winnerLastName": "Muller",
+    "winnerPosition": "attacker",
+    "winnerFullName": "Gerd Muller"
+  },
+  {
+    "year": "1971",
+    "winnerFirstName": "Johan",
+    "winnerLastName": "Cruyff",
+    "winnerPosition": "attacker",
+    "winnerFullName": "Johan Cruyff"
+  },
+  {
+    "year": "1972",
+    "winnerFirstName": "Franz",
+    "winnerLastName": "Beckenbauer",
+    "winnerPosition": "defender",
+    "winnerFullName": "Franz Beckenbauer"
+  },
+  {
+    "year": "1973",
+    "winnerFirstName": "Johan",
+    "winnerLastName": "Cruyff",
+    "winnerPosition": "attacker",
+    "winnerFullName": "Johan Cruyff"
+  },
+  {
+    "year": "1974",
+    "winnerFirstName": "Johan",
+    "winnerLastName": "Cruyff",
+    "winnerPosition": "attacker",
+    "winnerFullName": "Johan Cruyff"
+  },
+  {
+    "year": "1975",
+    "winnerFirstName": "Oleg",
+    "winnerLastName": "Blokhin",
+    "winnerPosition": "attacker",
+    "winnerFullName": "Oleg Blokhin"
+  },
+  {
+    "year": "1976",
+    "winnerFirstName": "Franz",
+    "winnerLastName": "Beckenbauer",
+    "winnerPosition": "defender",
+    "winnerFullName": "Franz Beckenbauer"
+  },
+  {
+    "year": "1977",
+    "winnerFirstName": "Allan",
+    "winnerLastName": "Simonsen",
+    "winnerPosition": "attacker",
+    "winnerFullName": "Allan Simonsen"
+  },
+  {
+    "year": "1978",
+    "winnerFirstName": "Kevin",
+    "winnerLastName": "Keegan",
+    "winnerPosition": "attacker",
+    "winnerFullName": "Kevin Keegan"
+  },
+  {
+    "year": "1979",
+    "winnerFirstName": "Kevin",
+    "winnerLastName": "Keegan",
+    "winnerPosition": "attacker",
+    "winnerFullName": "Kevin Keegan"
+  },
+  {
+    "year": "1980",
+    "winnerFirstName": "Karl-Heinz",
+    "winnerLastName": "Rummenigge",
+    "winnerPosition": "attacker",
+    "winnerFullName": "Karl-Heinz Rummenigge"
+  },
+  {
+    "year": "1981",
+    "winnerFirstName": "Karl-Heinz",
+    "winnerLastName": "Rummenigge",
+    "winnerPosition": "attacker",
+    "winnerFullName": "Karl-Heinz Rummenigge"
+  },
+  {
+    "year": "1982",
+    "winnerFirstName": "Paolo",
+    "winnerLastName": "Rossi",
+    "winnerPosition": "attacker",
+    "winnerFullName": "Paolo Rossi"
+  },
+  {
+    "year": "1983",
+    "winnerFirstName": "Michel",
+    "winnerLastName": "Platini",
+    "winnerPosition": "midfielder",
+    "winnerFullName": "Michel Platini"
+  },
+  {
+    "year": "1984",
+    "winnerFirstName": "Michel",
+    "winnerLastName": "Platini",
+    "winnerPosition": "midfielder",
+    "winnerFullName": "Michel Platini"
+  },
+  {
+    "year": "1985",
+    "winnerFirstName": "Michel",
+    "winnerLastName": "Platini",
+    "winnerPosition": "midfielder",
+    "winnerFullName": "Michel Platini"
+  },
+  {
+    "year": "1986",
+    "winnerFirstName": "Igor",
+    "winnerLastName": "Belanov",
+    "winnerPosition": "attacker",
+    "winnerFullName": "Igor Belanov"
+  },
+  {
+    "year": "1987",
+    "winnerFirstName": "Ruud",
+    "winnerLastName": "Gullit",
+    "winnerPosition": "midfielder",
+    "winnerFullName": "Ruud Gullit"
+  },
+  {
+    "year": "1988",
+    "winnerFirstName": "Marco",
+    "winnerLastName": "van Basten",
+    "winnerPosition": "attacker",
+    "winnerFullName": "Marco van Basten"
+  },
+  {
+    "year": "1989",
+    "winnerFirstName": "Marco",
+    "winnerLastName": "van Basten",
+    "winnerPosition": "attacker",
+    "winnerFullName": "Marco van Basten"
+  },
+  {
+    "year": "1990",
+    "winnerFirstName": "Lothar",
+    "winnerLastName": "Matthaus",
+    "winnerPosition": "midfielder",
+    "winnerFullName": "Lothar Matthaus"
+  },
+  {
+    "year": "1991",
+    "winnerFirstName": "Jean-Pierre",
+    "winnerLastName": "Papin",
+    "winnerPosition": "attacker",
+    "winnerFullName": "Jean-Pierre Papin"
+  },
+  {
+    "year": "1992",
+    "winnerFirstName": "Marco",
+    "winnerLastName": "van Basten",
+    "winnerPosition": "attacker",
+    "winnerFullName": "Marco van Basten"
+  },
+  {
+    "year": "1993",
+    "winnerFirstName": "Roberto",
+    "winnerLastName": "Baggio",
+    "winnerPosition": "attacker",
+    "winnerFullName": "Roberto Baggio"
+  },
+  {
+    "year": "1994",
+    "winnerFirstName": "Hristo",
+    "winnerLastName": "Stoichkov",
+    "winnerPosition": "attacker",
+    "winnerFullName": "Hristo Stoichkov"
+  },
+  {
+    "year": "1995",
+    "winnerFirstName": "George",
+    "winnerLastName": "Weah",
+    "winnerPosition": "attacker",
+    "winnerFullName": "George Weah"
+  },
+  {
+    "year": "1996",
+    "winnerFirstName": "Matthias",
+    "winnerLastName": "Sammer",
+    "winnerPosition": "defender",
+    "winnerFullName": "Matthias Sammer"
+  },
+  {
+    "year": "1997",
+    "winnerFirstName": "Ronaldo",
+    "winnerLastName": "Nazario",
+    "winnerPosition": "attacker",
+    "winnerFullName": "Ronaldo Nazario"
+  },
+  {
+    "year": "1998",
+    "winnerFirstName": "Zinedine",
+    "winnerLastName": "Zidane",
+    "winnerPosition": "midfielder",
+    "winnerFullName": "Zinedine Zidane"
+  },
+  {
+    "year": "1999",
+    "winnerFirstName": "Rivaldo",
+    "winnerLastName": "Vitor Borba Ferreira",
+    "winnerPosition": "attacker",
+    "winnerFullName": "Rivaldo Vitor Borba Ferreira"
+  },
+  {
+    "year": "2000",
+    "winnerFirstName": "Luis",
+    "winnerLastName": "Figo",
+    "winnerPosition": "attacker",
+    "winnerFullName": "Luis Figo"
+  },
+  {
+    "year": "2001",
+    "winnerFirstName": "Michael",
+    "winnerLastName": "Owen",
+    "winnerPosition": "attacker",
+    "winnerFullName": "Michael Owen"
+  },
+  {
+    "year": "2002",
+    "winnerFirstName": "Ronaldo",
+    "winnerLastName": "Nazario",
+    "winnerPosition": "attacker",
+    "winnerFullName": "Ronaldo Nazario"
+  },
+  {
+    "year": "2003",
+    "winnerFirstName": "Pavel",
+    "winnerLastName": "Nedved",
+    "winnerPosition": "midfielder",
+    "winnerFullName": "Pavel Nedved"
+  },
+  {
+    "year": "2004",
+    "winnerFirstName": "Andriy",
+    "winnerLastName": "Shevchenko",
+    "winnerPosition": "attacker",
+    "winnerFullName": "Andriy Shevchenko"
+  },
+  {
+    "year": "2005",
+    "winnerFirstName": "Ronaldinho",
+    "winnerLastName": "Gaucho",
+    "winnerPosition": "attacker",
+    "winnerFullName": "Ronaldinho Gaucho"
+  },
+  {
+    "year": "2006",
+    "winnerFirstName": "Fabio",
+    "winnerLastName": "Cannavaro",
+    "winnerPosition": "defender",
+    "winnerFullName": "Fabio Cannavaro"
+  },
+  {
+    "year": "2007",
+    "winnerFirstName": "Kaka",
+    "winnerLastName": "Ricardo Izecson dos Santos Leite",
+    "winnerPosition": "attacker",
+    "winnerFullName": "Kaka Ricardo Izecson dos Santos Leite"
+  },
+  {
+    "year": "2008",
+    "winnerFirstName": "Cristiano",
+    "winnerLastName": "Ronaldo",
+    "winnerPosition": "attacker",
+    "winnerFullName": "Cristiano Ronaldo"
+  },
+  {
+    "year": "2009",
+    "winnerFirstName": "Lionel",
+    "winnerLastName": "Messi",
+    "winnerPosition": "attacker",
+    "winnerFullName": "Lionel Messi"
+  },
+  {
+    "year": "2010",
+    "winnerFirstName": "Lionel",
+    "winnerLastName": "Messi",
+    "winnerPosition": "attacker",
+    "winnerFullName": "Lionel Messi"
+  },
+  {
+    "year": "2011",
+    "winnerFirstName": "Lionel",
+    "winnerLastName": "Messi",
+    "winnerPosition": "attacker",
+    "winnerFullName": "Lionel Messi"
+  },
+  {
+    "year": "2012",
+    "winnerFirstName": "Lionel",
+    "winnerLastName": "Messi",
+    "winnerPosition": "attacker",
+    "winnerFullName": "Lionel Messi"
+  },
+  {
+    "year": "2013",
+    "winnerFirstName": "Cristiano",
+    "winnerLastName": "Ronaldo",
+    "winnerPosition": "attacker",
+    "winnerFullName": "Cristiano Ronaldo"
+  },
+  {
+    "year": "2014",
+    "winnerFirstName": "Cristiano",
+    "winnerLastName": "Ronaldo",
+    "winnerPosition": "attacker",
+    "winnerFullName": "Cristiano Ronaldo"
+  },
+  {
+    "year": "2015",
+    "winnerFirstName": "Lionel",
+    "winnerLastName": "Messi",
+    "winnerPosition": "attacker",
+    "winnerFullName": "Lionel Messi"
+  },
+  {
+    "year": "2016",
+    "winnerFirstName": "Cristiano",
+    "winnerLastName": "Ronaldo",
+    "winnerPosition": "attacker",
+    "winnerFullName": "Cristiano Ronaldo"
+  },
+  {
+    "year": "2017",
+    "winnerFirstName": "Cristiano",
+    "winnerLastName": "Ronaldo",
+    "winnerPosition": "attacker",
+    "winnerFullName": "Cristiano Ronaldo"
+  },
+  {
+    "year": "2018",
+    "winnerFirstName": "Luka",
+    "winnerLastName": "Modric",
+    "winnerPosition": "midfielder",
+    "winnerFullName": "Luka Modric"
+  },
+  {
+    "year": "2019",
+    "winnerFirstName": "Lionel",
+    "winnerLastName": "Messi",
+    "winnerPosition": "attacker",
+    "winnerFullName": "Lionel Messi"
+  },
+  {
+    "year": "2021",
+    "winnerFirstName": "Lionel",
+    "winnerLastName": "Messi",
+    "winnerPosition": "attacker",
+    "winnerFullName": "Lionel Messi"
+  },
+  {
+    "year": "2022",
+    "winnerFirstName": "Karim",
+    "winnerLastName": "Benzema",
+    "winnerPosition": "attacker",
+    "winnerFullName": "Karim Benzema"
+  },
+  {
+    "year": "2023",
+    "winnerFirstName": "Lionel",
+    "winnerLastName": "Messi",
+    "winnerPosition": "attacker",
+    "winnerFullName": "Lionel Messi"
+  }
+]

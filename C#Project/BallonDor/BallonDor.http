@@ -1,0 +1,6 @@
+@BallonDor_HostAddress = http://localhost:5004
+
+GET {{BallonDor_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###

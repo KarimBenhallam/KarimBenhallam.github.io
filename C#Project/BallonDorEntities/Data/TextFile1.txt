@@ -1,0 +1,3 @@
+﻿This is where we would usually store our migrations.
+I am using a static database using a JSON file to avoid having to host a "real" database online.
+So we won't use any migrations here

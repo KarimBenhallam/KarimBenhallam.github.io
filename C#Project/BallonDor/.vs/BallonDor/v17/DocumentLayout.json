@@ -1,0 +1,170 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\Karim\\Desktop\\Personal Projects\\KarimBenhallam.github.io\\C#Project\\BallonDor\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{6CE6BDDF-5661-4189-A3F2-F57BC9206DAE}|BallonDor.csproj|c:\\users\\karim\\desktop\\personal projects\\karimbenhallam.github.io\\c#project\\ballondor\\controllers\\ballondorcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{6CE6BDDF-5661-4189-A3F2-F57BC9206DAE}|BallonDor.csproj|solutionrelative:controllers\\ballondorcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6CE6BDDF-5661-4189-A3F2-F57BC9206DAE}|BallonDor.csproj|c:\\users\\karim\\desktop\\personal projects\\karimbenhallam.github.io\\c#project\\ballondor\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{6CE6BDDF-5661-4189-A3F2-F57BC9206DAE}|BallonDor.csproj|solutionrelative:appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6CE6BDDF-5661-4189-A3F2-F57BC9206DAE}|BallonDor.csproj|c:\\users\\karim\\desktop\\personal projects\\karimbenhallam.github.io\\c#project\\ballondor\\ballondor.http||{5703B403-55E7-4C63-8C88-A8F52C7A45C5}",
+      "RelativeMoniker": "D:0:0:{6CE6BDDF-5661-4189-A3F2-F57BC9206DAE}|BallonDor.csproj|solutionrelative:ballondor.http||{5703B403-55E7-4C63-8C88-A8F52C7A45C5}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6CE6BDDF-5661-4189-A3F2-F57BC9206DAE}|BallonDor.csproj|c:\\users\\karim\\desktop\\personal projects\\karimbenhallam.github.io\\c#project\\ballondor\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{6CE6BDDF-5661-4189-A3F2-F57BC9206DAE}|BallonDor.csproj|solutionrelative:program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6CE6BDDF-5661-4189-A3F2-F57BC9206DAE}|BallonDor.csproj|c:\\users\\karim\\desktop\\personal projects\\karimbenhallam.github.io\\c#project\\ballondor\\ballondor.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
+      "RelativeMoniker": "D:0:0:{6CE6BDDF-5661-4189-A3F2-F57BC9206DAE}|BallonDor.csproj|solutionrelative:ballondor.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4E6B4C2D-1E8D-4A56-8E76-480EC32E6DF6}|..\\BallonDorEntities\\BallonDorEntities.csproj|c:\\users\\karim\\desktop\\personal projects\\karimbenhallam.github.io\\c#project\\ballondorentities\\staticdb.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6CE6BDDF-5661-4189-A3F2-F57BC9206DAE}|BallonDor.csproj|c:\\users\\karim\\desktop\\personal projects\\karimbenhallam.github.io\\c#project\\ballondor\\properties\\launchsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{6CE6BDDF-5661-4189-A3F2-F57BC9206DAE}|BallonDor.csproj|solutionrelative:properties\\launchsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4E6B4C2D-1E8D-4A56-8E76-480EC32E6DF6}|..\\BallonDorEntities\\BallonDorEntities.csproj|c:\\users\\karim\\desktop\\personal projects\\karimbenhallam.github.io\\c#project\\ballondorentities\\models\\playerdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{99FED0F2-8530-4EE6-9B57-42CD67B08A1A}|..\\BallonDorProcessor\\BallonDorProcessor.csproj|c:\\users\\karim\\desktop\\personal projects\\karimbenhallam.github.io\\c#project\\ballondorprocessor\\services\\implementations\\ballondorservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 7,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "appsettings.json",
+              "DocumentMoniker": "C:\\Users\\Karim\\Desktop\\Personal Projects\\KarimBenhallam.github.io\\C#Project\\BallonDor\\appsettings.json",
+              "RelativeDocumentMoniker": "appsettings.json",
+              "ToolTip": "C:\\Users\\Karim\\Desktop\\Personal Projects\\KarimBenhallam.github.io\\C#Project\\BallonDor\\appsettings.json",
+              "RelativeToolTip": "appsettings.json",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2024-03-11T19:48:27.376Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "BallonDor.http",
+              "DocumentMoniker": "C:\\Users\\Karim\\Desktop\\Personal Projects\\KarimBenhallam.github.io\\C#Project\\BallonDor\\BallonDor.http",
+              "RelativeDocumentMoniker": "BallonDor.http",
+              "ToolTip": "C:\\Users\\Karim\\Desktop\\Personal Projects\\KarimBenhallam.github.io\\C#Project\\BallonDor\\BallonDor.http",
+              "RelativeToolTip": "BallonDor.http",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAYAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003502|",
+              "WhenOpened": "2024-03-11T19:48:08.071Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{cce594b6-0c39-4442-ba28-10c64ac7e89f}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "BallonDor.csproj",
+              "DocumentMoniker": "C:\\Users\\Karim\\Desktop\\Personal Projects\\KarimBenhallam.github.io\\C#Project\\BallonDor\\BallonDor.csproj",
+              "RelativeDocumentMoniker": "BallonDor.csproj",
+              "ToolTip": "C:\\Users\\Karim\\Desktop\\Personal Projects\\KarimBenhallam.github.io\\C#Project\\BallonDor\\BallonDor.csproj",
+              "RelativeToolTip": "BallonDor.csproj",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAcAAAABAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
+              "WhenOpened": "2024-03-11T19:10:35.721Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "staticDB.json",
+              "DocumentMoniker": "C:\\Users\\Karim\\Desktop\\Personal Projects\\KarimBenhallam.github.io\\C#Project\\BallonDorEntities\\staticDB.json",
+              "RelativeDocumentMoniker": "..\\BallonDorEntities\\staticDB.json",
+              "ToolTip": "C:\\Users\\Karim\\Desktop\\Personal Projects\\KarimBenhallam.github.io\\C#Project\\BallonDorEntities\\staticDB.json",
+              "RelativeToolTip": "..\\BallonDorEntities\\staticDB.json",
+              "ViewState": "AQIAALYBAAAAAAAAAAAswNcBAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2024-03-10T08:00:54.677Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "launchSettings.json",
+              "DocumentMoniker": "C:\\Users\\Karim\\Desktop\\Personal Projects\\KarimBenhallam.github.io\\C#Project\\BallonDor\\Properties\\launchSettings.json",
+              "RelativeDocumentMoniker": "Properties\\launchSettings.json",
+              "ToolTip": "C:\\Users\\Karim\\Desktop\\Personal Projects\\KarimBenhallam.github.io\\C#Project\\BallonDor\\Properties\\launchSettings.json",
+              "RelativeToolTip": "Properties\\launchSettings.json",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2024-03-10T07:33:55.522Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\Karim\\Desktop\\Personal Projects\\KarimBenhallam.github.io\\C#Project\\BallonDor\\Program.cs",
+              "RelativeDocumentMoniker": "Program.cs",
+              "ToolTip": "C:\\Users\\Karim\\Desktop\\Personal Projects\\KarimBenhallam.github.io\\C#Project\\BallonDor\\Program.cs",
+              "RelativeToolTip": "Program.cs",
+              "ViewState": "AQIAAAkAAAAAAAAAAAAAAB0AAABAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-03-10T07:30:00.545Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "BallonDorController.cs",
+              "DocumentMoniker": "C:\\Users\\Karim\\Desktop\\Personal Projects\\KarimBenhallam.github.io\\C#Project\\BallonDor\\Controllers\\BallonDorController.cs",
+              "RelativeDocumentMoniker": "Controllers\\BallonDorController.cs",
+              "ToolTip": "C:\\Users\\Karim\\Desktop\\Personal Projects\\KarimBenhallam.github.io\\C#Project\\BallonDor\\Controllers\\BallonDorController.cs",
+              "RelativeToolTip": "Controllers\\BallonDorController.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAUAAAAjAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-03-09T21:50:19.809Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "PlayerDTO.cs",
+              "DocumentMoniker": "C:\\Users\\Karim\\Desktop\\Personal Projects\\KarimBenhallam.github.io\\C#Project\\BallonDorEntities\\Models\\PlayerDTO.cs",
+              "RelativeDocumentMoniker": "..\\BallonDorEntities\\Models\\PlayerDTO.cs",
+              "ToolTip": "C:\\Users\\Karim\\Desktop\\Personal Projects\\KarimBenhallam.github.io\\C#Project\\BallonDorEntities\\Models\\PlayerDTO.cs",
+              "RelativeToolTip": "..\\BallonDorEntities\\Models\\PlayerDTO.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA0AAAAaAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-03-09T21:47:50.359Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "BallonDorService.cs",
+              "DocumentMoniker": "C:\\Users\\Karim\\Desktop\\Personal Projects\\KarimBenhallam.github.io\\C#Project\\BallonDorProcessor\\Services\\Implementations\\BallonDorService.cs",
+              "RelativeDocumentMoniker": "..\\BallonDorProcessor\\Services\\Implementations\\BallonDorService.cs",
+              "ToolTip": "C:\\Users\\Karim\\Desktop\\Personal Projects\\KarimBenhallam.github.io\\C#Project\\BallonDorProcessor\\Services\\Implementations\\BallonDorService.cs",
+              "RelativeToolTip": "..\\BallonDorProcessor\\Services\\Implementations\\BallonDorService.cs",
+              "ViewState": "AQIAABAAAAAAAAAAAAAgwCkAAAALAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-03-09T20:41:32.144Z"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

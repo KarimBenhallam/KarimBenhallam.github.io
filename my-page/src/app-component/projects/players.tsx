@@ -8,7 +8,7 @@ import { InputText } from 'primereact/inputtext';
 
 const Players = () => {
 
-    const api = "https://localhost:7183";
+    const api = "https://8ufqphbskd.execute-api.us-east-1.amazonaws.com/firstDeploy/";
 
     const [playersData, setData]: [any[], Dispatch<SetStateAction<any>>] = useState([]);
     const [filters, setFilters] = useState({
@@ -73,7 +73,7 @@ const Players = () => {
         <Column field="lastName" header="Last Name" sortable style={{ width: '20%' }}></Column>
         <Column field="position" header="Position" sortable style={{ width: '20%' }}></Column>
         <Column field="total" header="Number of awards" sortable style={{ width: '20%' }}></Column>
-        <Column field="years" header="Winning years" style={{ width: '20%' }} body={(rowData) => rowData.years.join(', ')}></Column>
+        <Column field="years" header="Winning years" sortable style={{ width: '20%' }} body={(rowData) => rowData.years.join(', ')}></Column>
     </DataTable>
     )
 

@@ -1,0 +1,4 @@
+C:\Users\Karim\Desktop\Personal Projects\KarimBenhallam.github.io\C#Project\BallonDor\bin\Release\net8.0\publish\BallonDorEntities.dll
+C:\Users\Karim\Desktop\Personal Projects\KarimBenhallam.github.io\C#Project\BallonDor\bin\Release\net8.0\publish\BallonDorEntities.deps.json
+C:\Users\Karim\Desktop\Personal Projects\KarimBenhallam.github.io\C#Project\BallonDor\bin\Release\net8.0\publish\BallonDorEntities.runtimeconfig.json
+C:\Users\Karim\Desktop\Personal Projects\KarimBenhallam.github.io\C#Project\BallonDor\bin\Release\net8.0\publish\BallonDorEntities.pdb

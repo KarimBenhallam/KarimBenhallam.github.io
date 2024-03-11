@@ -1,0 +1,8 @@
+C:\Users\Karim\Desktop\Personal Projects\KarimBenhallam.github.io\C#Project\BallonDor\bin\Release\net8.0\publish\BallonDorProcessor.dll
+C:\Users\Karim\Desktop\Personal Projects\KarimBenhallam.github.io\C#Project\BallonDor\bin\Release\net8.0\publish\BallonDorProcessor.deps.json
+C:\Users\Karim\Desktop\Personal Projects\KarimBenhallam.github.io\C#Project\BallonDor\bin\Release\net8.0\publish\BallonDorProcessor.runtimeconfig.json
+C:\Users\Karim\Desktop\Personal Projects\KarimBenhallam.github.io\C#Project\BallonDor\bin\Release\net8.0\publish\BallonDorProcessor.pdb
+C:\Users\Karim\Desktop\Personal Projects\KarimBenhallam.github.io\C#Project\BallonDor\bin\Release\net8.0\publish\BallonDorEntities.dll
+C:\Users\Karim\Desktop\Personal Projects\KarimBenhallam.github.io\C#Project\BallonDor\bin\Release\net8.0\publish\DataAccess.dll
+C:\Users\Karim\Desktop\Personal Projects\KarimBenhallam.github.io\C#Project\BallonDor\bin\Release\net8.0\publish\BallonDorEntities.pdb
+C:\Users\Karim\Desktop\Personal Projects\KarimBenhallam.github.io\C#Project\BallonDor\bin\Release\net8.0\publish\DataAccess.pdb

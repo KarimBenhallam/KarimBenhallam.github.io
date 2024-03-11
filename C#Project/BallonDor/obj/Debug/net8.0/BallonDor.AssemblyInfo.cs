@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("BallonDor")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+bd79c9a19b42609ec3c241583151701aaf441661")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+54d08b83f464fe9013d2c455f83065b3b2c9d583")]
 [assembly: System.Reflection.AssemblyProductAttribute("BallonDor")]
 [assembly: System.Reflection.AssemblyTitleAttribute("BallonDor")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

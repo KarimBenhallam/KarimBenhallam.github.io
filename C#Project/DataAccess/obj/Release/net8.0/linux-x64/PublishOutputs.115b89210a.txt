@@ -1,0 +1,6 @@
+C:\Users\Karim\Desktop\Personal Projects\KarimBenhallam.github.io\C#Project\BallonDor\bin\Release\net8.0\publish\DataAccess.dll
+C:\Users\Karim\Desktop\Personal Projects\KarimBenhallam.github.io\C#Project\BallonDor\bin\Release\net8.0\publish\DataAccess.deps.json
+C:\Users\Karim\Desktop\Personal Projects\KarimBenhallam.github.io\C#Project\BallonDor\bin\Release\net8.0\publish\DataAccess.runtimeconfig.json
+C:\Users\Karim\Desktop\Personal Projects\KarimBenhallam.github.io\C#Project\BallonDor\bin\Release\net8.0\publish\DataAccess.pdb
+C:\Users\Karim\Desktop\Personal Projects\KarimBenhallam.github.io\C#Project\BallonDor\bin\Release\net8.0\publish\BallonDorEntities.dll
+C:\Users\Karim\Desktop\Personal Projects\KarimBenhallam.github.io\C#Project\BallonDor\bin\Release\net8.0\publish\BallonDorEntities.pdb

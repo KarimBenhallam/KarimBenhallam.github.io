@@ -1,0 +1,16 @@
+C:\Users\Karim\Desktop\Personal Projects\KarimBenhallam.github.io\C#Project\BallonDorEntities\bin\Release\net8.0\linux-x64\BallonDorEntities.deps.json
+C:\Users\Karim\Desktop\Personal Projects\KarimBenhallam.github.io\C#Project\BallonDorEntities\bin\Release\net8.0\linux-x64\BallonDorEntities.runtimeconfig.json
+C:\Users\Karim\Desktop\Personal Projects\KarimBenhallam.github.io\C#Project\BallonDorEntities\bin\Release\net8.0\linux-x64\BallonDorEntities.dll
+C:\Users\Karim\Desktop\Personal Projects\KarimBenhallam.github.io\C#Project\BallonDorEntities\bin\Release\net8.0\linux-x64\BallonDorEntities.pdb
+C:\Users\Karim\Desktop\Personal Projects\KarimBenhallam.github.io\C#Project\BallonDorEntities\obj\Release\net8.0\linux-x64\BallonDorEntities.Properties.Resources.resources
+C:\Users\Karim\Desktop\Personal Projects\KarimBenhallam.github.io\C#Project\BallonDorEntities\obj\Release\net8.0\linux-x64\BallonDorEntities.csproj.GenerateResource.cache
+C:\Users\Karim\Desktop\Personal Projects\KarimBenhallam.github.io\C#Project\BallonDorEntities\obj\Release\net8.0\linux-x64\BallonDorEntities.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Karim\Desktop\Personal Projects\KarimBenhallam.github.io\C#Project\BallonDorEntities\obj\Release\net8.0\linux-x64\BallonDorEntities.AssemblyInfoInputs.cache
+C:\Users\Karim\Desktop\Personal Projects\KarimBenhallam.github.io\C#Project\BallonDorEntities\obj\Release\net8.0\linux-x64\BallonDorEntities.AssemblyInfo.cs
+C:\Users\Karim\Desktop\Personal Projects\KarimBenhallam.github.io\C#Project\BallonDorEntities\obj\Release\net8.0\linux-x64\BallonDorEntities.csproj.CoreCompileInputs.cache
+C:\Users\Karim\Desktop\Personal Projects\KarimBenhallam.github.io\C#Project\BallonDorEntities\obj\Release\net8.0\linux-x64\BallonDorEntities.sourcelink.json
+C:\Users\Karim\Desktop\Personal Projects\KarimBenhallam.github.io\C#Project\BallonDorEntities\obj\Release\net8.0\linux-x64\BallonDorEntities.dll
+C:\Users\Karim\Desktop\Personal Projects\KarimBenhallam.github.io\C#Project\BallonDorEntities\obj\Release\net8.0\linux-x64\refint\BallonDorEntities.dll
+C:\Users\Karim\Desktop\Personal Projects\KarimBenhallam.github.io\C#Project\BallonDorEntities\obj\Release\net8.0\linux-x64\BallonDorEntities.pdb
+C:\Users\Karim\Desktop\Personal Projects\KarimBenhallam.github.io\C#Project\BallonDorEntities\obj\Release\net8.0\linux-x64\BallonDorEntities.genruntimeconfig.cache
+C:\Users\Karim\Desktop\Personal Projects\KarimBenhallam.github.io\C#Project\BallonDorEntities\obj\Release\net8.0\linux-x64\ref\BallonDorEntities.dll

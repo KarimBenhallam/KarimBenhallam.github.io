@@ -1,0 +1,20 @@
+
+{
+    "region" : "us-east-1",
+    "profile" : "KarimBenhallam",
+    "configuration" : "Release",
+    "framework"     : "net8.0",
+    "function-name" : "APIFunction",
+    "package-type"  : "Zip",
+    "function-handler" : "BallonDor",
+    "function-memory-size" : 256,
+    "function-role"        : "arn:aws:iam::339712743643:role/lambda_exec_APIFunction",
+    "function-timeout"     : 10,
+    "function-runtime"     : "dotnet8",
+    "function-architecture" : "x86_64",
+    "function-subnets"      : "",
+    "function-security-groups" : "",
+    "tracing-mode"             : "PassThrough",
+    "environment-variables"    : "",
+    "image-tag"                : ""
+}

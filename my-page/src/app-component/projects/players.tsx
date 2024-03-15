@@ -72,44 +72,38 @@ const Players = () => {
             xhr.open('GET', `${api}/BallonDor`);
             xhr.onload = function () {
                 if (xhr.status === 200) {
-                    setData(JSON.parse(xhr.responseText));
-                    updatePlayers(playersData)
+                    const parsedData = JSON.parse(xhr.responseText);
+                    updatePlayers(parsedData);
                     setLoading(false);
                 }
             };
             xhr.send();
-        }
-        const updatePlayers = (players : player[]) => {
-
-            players.forEach(player => {
-                switch(player.position){
-                    case "attacker":{
-                        player.positionFr = "attaquant";
-                        break;
-                    }
-                    case "midfielder":{
-                        player.positionFr = "milieu de terrain";
-                        break;
-                    }
-                    case "defender":{
-                        player.positionFr = "défenseur";
-                        break;
-                    }
-                    case "goalkeeper":{
-                        player.positionFr = "gardien de but";
-                        break;
-                    }
+        };
+    
+        const updatePlayers = (players: player[]) => {
+            // Modify player positions
+            const updatedPlayers = players.map(player => {
+                switch (player.position) {
+                    case "attacker":
+                        return { ...player, positionFr: "attaquant" };
+                    case "midfielder":
+                        return { ...player, positionFr: "milieu de terrain" };
+                    case "defender":
+                        return { ...player, positionFr: "défenseur" };
+                    case "goalkeeper":
+                        return { ...player, positionFr: "gardien de but" };
                     default:
                         console.log("Unknown position:", player.position);
+                        return player;
                 }
-            })
-
-            setData(players)
+            });
+            setData(updatedPlayers);
         };
-
+    
         getPlayers();
-
-    }, [playersData])
+    
+    }, []);
+    
 
 
 

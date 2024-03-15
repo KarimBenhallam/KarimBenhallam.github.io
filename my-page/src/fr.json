@@ -37,5 +37,15 @@
         "sudoku" : "Sudoku (Java)",
         "api" : "Web Api (C#)",
         "calculator" : "Calculator (C++)"
+    },
+    "table_headers" : {
+        "header" : "Gagnants du Ballon D'or",
+        "first_name" : "Prénom",
+        "last_name" : "Nom",
+        "position" : "Poste",
+        "num_awards" : "Nombre de trophées",
+        "years" : "Années de sacre",
+        "search" : "Recherche",
+        "empty" : "Aucun joueur correspondant."
     }
 }

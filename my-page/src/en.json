@@ -37,5 +37,15 @@
         "sudoku" : "Sudoku (Java)",
         "api" : "Web Api (C#)",
         "calculator" : "Calculator (C++)"
+    },
+    "table_headers" : {
+        "header" : "Ballon D'or Winners",
+        "first_name" : "First name",
+        "last_name" : "Last name",
+        "position" : "Position",
+        "num_awards" : "Number of awards",
+        "years" : "Winning years",
+        "search" : "Search",
+        "empty" : "No player found."
     }
 }

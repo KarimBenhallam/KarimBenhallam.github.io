@@ -4,13 +4,32 @@ import { Column } from 'primereact/column';
 import { player } from '../../classes/player';
 import { FilterMatchMode } from 'primereact/api';
 import { InputText } from 'primereact/inputtext';
+import { useLanguageContext } from '../../contexts/language-context';
+import { getTextFromJSON } from '../../utils/languageUtils';
 
 
 const Players = () => {
 
+    const context = useLanguageContext();
+
+
+    const tableHeader = getTextFromJSON(context.language, "table_headers.header");
+    const firstName = getTextFromJSON(context.language, "table_headers.first_name");
+    const lastName = getTextFromJSON(context.language, "table_headers.last_name");
+    const position = getTextFromJSON(context.language, "table_headers.position");
+    const total = getTextFromJSON(context.language, "table_headers.num_awards");
+    const years = getTextFromJSON(context.language, "table_headers.years");
+    const search = getTextFromJSON(context.language, "table_headers.search")
+    const empty = getTextFromJSON(context.language, "table_headers.empty");
+
+
     const api = "https://8ufqphbskd.execute-api.us-east-1.amazonaws.com/firstDeploy/";
 
+
     const [playersData, setData]: [any[], Dispatch<SetStateAction<any>>] = useState([]);
+    const [loading, setLoading] = useState(true);
+
+
     const [filters, setFilters] = useState({
         global: { value: null, matchMode: FilterMatchMode.CONTAINS },
         firstName: { value: null, matchMode: FilterMatchMode.STARTS_WITH },
@@ -18,9 +37,10 @@ const Players = () => {
         representative: { value: null, matchMode: FilterMatchMode.IN },
         years: { value: null, matchMode: FilterMatchMode.EQUALS },
     });
+
     const [globalFilterValue, setGlobalFilterValue] = useState('');
 
-    const onGlobalFilterChange = (e : any) => {
+    const onGlobalFilterChange = (e: any) => {
         const value = e.target.value;
         let _filters = { ...filters };
 
@@ -32,49 +52,79 @@ const Players = () => {
 
     const renderHeader = () => {
         return (
-            <div className="flex justify-content-end">
-                <span className="p-input-icon-left">
-                    <i className="pi pi-search" />
-                    <InputText value={globalFilterValue} onChange={onGlobalFilterChange} placeholder="Search" />
-                </span>
+            <div>
+                <div className='flex justify-content-start'>
+                    <span>{tableHeader}</span>
+                </div>
+                <div className="flex justify-content-end">
+                    <span className="p-input-icon-left">
+                        <i className="pi pi-search" />
+                        <InputText value={globalFilterValue} onChange={onGlobalFilterChange} placeholder={search} />
+                    </span>
+                </div>
             </div>
         );
     };
 
-    useEffect(() =>{
+    useEffect(() => {
         const getPlayers = () => {
-            console.log(" yeh");
             const xhr = new XMLHttpRequest();
             xhr.open('GET', `${api}/BallonDor`);
             xhr.onload = function () {
                 if (xhr.status === 200) {
                     setData(JSON.parse(xhr.responseText));
+                    updatePlayers(playersData)
+                    setLoading(false);
                 }
             };
             xhr.send();
         }
+        const updatePlayers = (players : player[]) => {
+
+            players.forEach(player => {
+                switch(player.position){
+                    case "attacker":{
+                        player.positionFr = "attaquant";
+                        break;
+                    }
+                    case "midfielder":{
+                        player.positionFr = "milieu de terrain";
+                        break;
+                    }
+                    case "defender":{
+                        player.positionFr = "défenseur";
+                        break;
+                    }
+                    case "goalkeeper":{
+                        player.positionFr = "gardien de but";
+                        break;
+                    }
+                    default:
+                        console.log("Unknown position:", player.position);
+                }
+            })
+
+            setData(players)
+        };
 
         getPlayers();
 
-    }, [])
+    }, [playersData])
 
-    
+
 
     const header = renderHeader();
 
-    
 
-
-
-    return(
-    <DataTable value={playersData} tableStyle={{ minWidth: '50rem' }} filters={filters} filterDisplay="row" paginator rows={10}
-    globalFilterFields={['firstName', 'lastName', 'years']} header={header} emptyMessage="No player found.">
-        <Column field="firstName" header="First name" sortable style={{ width: '20%' }}></Column>
-        <Column field="lastName" header="Last Name" sortable style={{ width: '20%' }}></Column>
-        <Column field="position" header="Position" sortable style={{ width: '20%' }}></Column>
-        <Column field="total" header="Number of awards" sortable style={{ width: '20%' }}></Column>
-        <Column field="years" header="Winning years" sortable style={{ width: '20%' }} body={(rowData) => rowData.years.join(', ')}></Column>
-    </DataTable>
+    return (
+        <DataTable value={playersData} tableStyle={{ minWidth: '50rem' }} filters={filters} filterDisplay="row" paginator rows={10}
+            globalFilterFields={['firstName', 'lastName', 'years']} header={header} loading={loading} emptyMessage={empty}>
+            <Column field="firstName" header={firstName} sortable style={{ width: '20%' }}></Column>
+            <Column field="lastName" header={lastName} sortable style={{ width: '20%' }}></Column>
+            <Column field={context.language === "en" ? "position" : "positionFr"} header={position} sortable style={{ width: '20%' }}></Column>
+            <Column field="total" header={total} sortable style={{ width: '20%' }}></Column>
+            <Column field="years" header={years} sortable style={{ width: '20%' }} body={(rowData) => rowData.years.join(', ')}></Column>
+        </DataTable>
     )
 
 

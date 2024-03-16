@@ -6,14 +6,27 @@ import { useState } from 'react';
 import { classNames } from 'primereact/utils';
 import Sudoku from '../projects/sudoku';
 import Players from '../projects/players';
+import { Button } from 'primereact/button';
 
 type Project = "web" | "snake" | "sudoku" | "api" | "calculator"
 
 const Work = () => {
-  //context and states
+  //context
   const context = useLanguageContext();
+
+  //links
+  const webLink = "";
+  const snakeLink = "";
+  const sudokuLink = "";
+  const apiLink = "";
+  const calculatorLink = "";
+
+  //states
   const [project, setProject] = useState<Project>("web");
   const [isWindowOpen, setIsWindowOpen] = useState(false);
+  const [link, setLink] = useState(webLink);
+
+
 
   //json constants
   const intro = getTextFromJSON(context.language, "work_content.intro");
@@ -23,6 +36,7 @@ const Work = () => {
   const sudoku = getTextFromJSON(context.language, "work_content.sudoku");
   const api = getTextFromJSON(context.language, "work_content.api");
   const calculator = getTextFromJSON(context.language, "work_content.calculator");
+  const button = getTextFromJSON(context.language, "work_content.button");
 
 
 
@@ -36,13 +50,17 @@ const Work = () => {
     {
       label: website,
       icon: 'pi pi-globe',
-      command: () => { setProject("web") }
+      command: () => {
+        setProject("web")
+        setLink(webLink);
+      }
     },
     {
       label: snake,
       icon: 'pi pi-bolt',
       command: () => {
         setProject("snake")
+        setLink(snakeLink);
         if (!isWindowOpen) {
           runSnake();
         }
@@ -51,17 +69,26 @@ const Work = () => {
     {
       label: sudoku,
       icon: 'pi pi-table',
-      command: () => { setProject("sudoku") }
+      command: () => {
+        setProject("sudoku")
+        setLink(sudokuLink);
+      }
     },
     {
       label: api,
       icon: 'pi pi-server',
-      command: () => { setProject("api") }
+      command: () => {
+        setProject("api")
+        setLink(apiLink);
+      }
     },
     {
       label: calculator,
       icon: 'pi pi-calculator',
-      command: () => { setProject("calculator") }
+      command: () => {
+        setProject("calculator")
+        setLink(calculatorLink);
+      }
     }
   ];
 
@@ -71,20 +98,23 @@ const Work = () => {
     //the previous version only worked on firefox
     <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', textAlign: 'center' }}>
       <Splitter className="w-11 max-h-screen">
-        <SplitterPanel className="flex align-items-center justify-content-center " size={25}>
+        <SplitterPanel className="flex flex-column" size={25}>
           <div dangerouslySetInnerHTML={{ __html: intro! }} />
+          <div className='justify-content-center'>
+            <a href={link} target="_blank" rel="noopener noreferrer" className="p-button font-bold mb-2">{button}</a>
+          </div>
         </SplitterPanel>
 
 
-        <SplitterPanel className="flex align-items-center justify-content-center" size={75} minSize={50}>
+        <SplitterPanel className="flex justify-content-center" size={75} minSize={50}>
           <div className='relative'>
             <TabMenu model={items} />
             {/* iframe needs to always exist as it's the target of window.open */}
-            <iframe name='snakeFrame' className={classNames('w-12 h-30rem', { hidden: project !== "snake" })}></iframe>
+            <iframe title='snakeFrame' name='snakeFrame' className={classNames('w-12 h-30rem', { hidden: project !== "snake" })}></iframe>
 
             <div>
               {project === "web" && (
-                <div dangerouslySetInnerHTML={{ __html: website_text! }} />
+                  <div dangerouslySetInnerHTML={{ __html: website_text! }} className='mt-5' />
 
               )}
             </div>
@@ -98,9 +128,9 @@ const Work = () => {
               )}
             </div> */}
 
-<           div>
+            <           div>
               {project === "api" && (
-                <Players/>
+                <Players />
               )}
             </div>
 

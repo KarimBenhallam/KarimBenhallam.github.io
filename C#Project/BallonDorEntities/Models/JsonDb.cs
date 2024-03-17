@@ -15,7 +15,7 @@ namespace BallonDorEntities.Models
         {
             string json = Resources.staticDB;
 
-            return JsonSerializer.Deserialize<List<BallonDor>>(json); ;
+            return JsonSerializer.Deserialize<List<BallonDor>>(json);
         }
     }
 }

@@ -15,10 +15,10 @@ const Work = () => {
   const context = useLanguageContext();
 
   //links
-  const webLink = "";
-  const snakeLink = "";
+  const webLink = "https://github.com/KarimBenhallam/KarimBenhallam.github.io/blob/main/my-page/README.md";
+  const snakeLink = "https://github.com/KarimBenhallam/KarimBenhallam.github.io/blob/main/my-page/public/work_samples/snake/README.md";
   const sudokuLink = "";
-  const apiLink = "https://github.com/KarimBenhallam/KarimBenhallam.github.io/tree/main/C%23Project";
+  const apiLink = "https://github.com/KarimBenhallam/KarimBenhallam.github.io/blob/main/C%23Project/README.md";
   const calculatorLink = "";
 
   //states

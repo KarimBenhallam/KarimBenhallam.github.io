@@ -157,7 +157,7 @@ const About = () => {
                 </Card>
             </TabPanel>
             <TabPanel header={more} leftIcon="pi pi-plus mr-2">
-            <Card title={morocco_title} ref={morocco_ref} className={classNames('col-7 bg-gray-800 shadow-8 mb-2', { 'fadeinleft animation-duration-1000 animation-iteration-1': morocco_visible },
+            <Card title={morocco_title} ref={morocco_ref} className={classNames('col-9 bg-gray-800 shadow-8 mb-2', { 'fadeinleft animation-duration-1000 animation-iteration-1': morocco_visible },
                     { 'fadeoutleft animation-duration-1000 animation-iteration-1': !morocco_visible })}>
                         <div className='grid'>
                             <div className='col-6'>
@@ -169,7 +169,7 @@ const About = () => {
                             </div>
                         </div>
                 </Card>
-                <Card title={me_title} ref={me_ref} className={classNames('col-offset-5 bg-gray-800 shadow-8 mb-2', { 'fadeinright animation-duration-1000 animation-iteration-1': me_visible },
+                <Card title={me_title} ref={me_ref} className={classNames('col-offset-3 bg-gray-800 shadow-8 mb-2', { 'fadeinright animation-duration-1000 animation-iteration-1': me_visible },
                     { 'fadeoutright animation-duration-1000 animation-iteration-1': !me_visible })}>
                         <div className='grid'>
                             <div className='col-6'>
@@ -181,19 +181,19 @@ const About = () => {
                             </div>
                         </div>
                 </Card>
-                <Card title={soccer_title} ref={soccer_ref} className={classNames('col-7 bg-gray-800 shadow-8 mb-2', { 'fadeinleft animation-duration-1000 animation-iteration-1': soccer_visible },
+                <Card title={soccer_title} ref={soccer_ref} className={classNames('col-9 bg-gray-800 shadow-8 mb-2', { 'fadeinleft animation-duration-1000 animation-iteration-1': soccer_visible },
                     { 'fadeoutleft animation-duration-1000 animation-iteration-1': !soccer_visible })}>
                         <div className='grid'>
                             <div className='col-6'>
                         <div dangerouslySetInnerHTML={{ __html: soccer! }} />
                             </div>
-                            <div className='col'>
+                            <div className='col w-6'>
                     <Carousel value={socc_images} numVisible={1} numScroll={1} className="custom-carousel" circular
                         autoplayInterval={1500} itemTemplate={imageTemplate} />
                             </div>
                         </div>
                 </Card>
-                <Card title={gym_title} ref={gym_ref} className={classNames('col-offset-5 bg-gray-800 shadow-8', { 'fadeinright animation-duration-1000 animation-iteration-1': gym_visible },
+                <Card title={gym_title} ref={gym_ref} className={classNames('col-offset-3 bg-gray-800 shadow-8', { 'fadeinright animation-duration-1000 animation-iteration-1': gym_visible },
                     { 'fadeoutright animation-duration-1000 animation-iteration-1': !gym_visible })}>
                         <div className='grid'>
                             <div className='col-6'>

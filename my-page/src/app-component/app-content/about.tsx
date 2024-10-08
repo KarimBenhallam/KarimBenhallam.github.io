@@ -130,77 +130,77 @@ const About = () => {
     return (
         <TabView activeIndex={activeIndex} onTabChange={e => setActiveIndex(e.index)}>
             <TabPanel header={overview} leftIcon="pi pi-search mr-2">
-                <Card title={wcc_title} ref={wcc_ref} className={classNames('col-6 bg-gray-800 shadow-8', { 'fadeinleft animation-duration-1000 animation-iteration-1': wcc_visible },
+                <Card title={wcc_title} ref={wcc_ref} className={classNames('lg:col-6 xl:col-6 bg-gray-800 shadow-8 mb-4 lg:mb-0 xl:mb-0', { 'fadeinleft animation-duration-1000 animation-iteration-1': wcc_visible },
                     { 'fadeoutleft animation-duration-1000 animation-iteration-1': !wcc_visible })}>
                     <img src="./uottawa.png" alt='' className='mb-1 right-100 sticky max-h-4rem max-w-4rem' />
                     <div dangerouslySetInnerHTML={{ __html: wcc! }} />
                 </Card>
-                <Card title={wdev_title} ref={wdev_ref} className={classNames('col-offset-6 bg-gray-800 shadow-8', { 'fadeinright animation-duration-1000 animation-iteration-1': wdev_visible },
+                <Card title={wdev_title} ref={wdev_ref} className={classNames('lg:col-offset-6 xl:col-offset-6 bg-gray-800 shadow-8 mb-4 lg:mb-0 xl:mb-0', { 'fadeinright animation-duration-1000 animation-iteration-1': wdev_visible },
                     { 'fadeoutright animation-duration-1000 animation-iteration-1': !wdev_visible })}>
                     <img src="./innovapost.jpg" alt="" className='mb-1 right-100 sticky max-h-5rem max-w-7rem' />
                     <div dangerouslySetInnerHTML={{ __html: wdev! }} />
                 </Card>
-                <Card title={fstack_title} ref={fstack_ref} className={classNames('col-6 bg-gray-800 shadow-8', { 'fadeinleft animation-duration-1000 animation-iteration-1': fstack_visible },
+                <Card title={fstack_title} ref={fstack_ref} className={classNames('lg:col-6 xl:col-6 bg-gray-800 shadow-8 mb-4 lg:mb-0 xl:mb-0', { 'fadeinleft animation-duration-1000 animation-iteration-1': fstack_visible },
                     { 'fadeoutleft animation-duration-1000 animation-iteration-1': !fstack_visible })}>
                     <img src="./conceptio.png" alt="" className='mb-1 right-100 sticky max-h-5rem w-7rem' />
                     <div dangerouslySetInnerHTML={{ __html: fstack! }} />
                 </Card>
-                <Card title={capstone_title} ref={capstone_ref} className={classNames('col-offset-6 bg-gray-800 shadow-8', { 'fadeinright animation-duration-1000 animation-iteration-1': capstone_visible },
+                <Card title={capstone_title} ref={capstone_ref} className={classNames('lg:col-offset-6 xl:col-offset-6 bg-gray-800 shadow-8 mb-4 lg:mb-0 xl:mb-0', { 'fadeinright animation-duration-1000 animation-iteration-1': capstone_visible },
                     { 'fadeoutright animation-duration-1000 animation-iteration-1': !capstone_visible })}>
                     <img src="./uottawa.png" alt='' className='mb-1 right-100 sticky max-h-4rem max-w-4rem' />
                     <div dangerouslySetInnerHTML={{ __html: capstone! }} />
                 </Card>
-                <Card title={ra_title} ref={ra_ref} className={classNames('col-6 bg-gray-800 shadow-8', { 'fadeinleft animation-duration-1000 animation-iteration-1': ra_visible },
+                <Card title={ra_title} ref={ra_ref} className={classNames('lg:col-6 xl:col-6 bg-gray-800 shadow-8', { 'fadeinleft animation-duration-1000 animation-iteration-1': ra_visible },
                     { 'fadeoutleft animation-duration-1000 animation-iteration-1': !ra_visible })}>
                     <img src="./uottawa.png" alt='' className='mb-1 right-100 sticky max-h-4rem max-w-4rem' />
                     <div dangerouslySetInnerHTML={{ __html: ra! }} />
                 </Card>
             </TabPanel>
             <TabPanel header={more} leftIcon="pi pi-plus mr-2">
-            <Card title={morocco_title} ref={morocco_ref} className={classNames('col-9 bg-gray-800 shadow-8 mb-2', { 'fadeinleft animation-duration-1000 animation-iteration-1': morocco_visible },
+            <Card title={morocco_title} ref={morocco_ref} className={classNames('lg:col-9 xl:col-9 bg-gray-800 shadow-8 mb-2', { 'fadeinleft animation-duration-1000 animation-iteration-1': morocco_visible },
                     { 'fadeoutleft animation-duration-1000 animation-iteration-1': !morocco_visible })}>
                         <div className='grid'>
-                            <div className='col-6'>
+                            <div className='lg:col-6 xl:col-6'>
                         <div dangerouslySetInnerHTML={{ __html: morocco! }} />
                             </div>
-                            <div className='col-6'>
-                    <Carousel value={mor_images} numVisible={1} numScroll={1} className="custom-carousel" circular
+                            <div className='lg:col-6 xl:col-6'>
+                    <Carousel value={mor_images} numVisible={1} numScroll={1} className="custom-carousel relative w-5 lg:w-12 xl:w-12" circular
                         autoplayInterval={1500} itemTemplate={imageTemplate} />
                             </div>
                         </div>
                 </Card>
-                <Card title={me_title} ref={me_ref} className={classNames('col-offset-3 bg-gray-800 shadow-8 mb-2', { 'fadeinright animation-duration-1000 animation-iteration-1': me_visible },
+                <Card title={me_title} ref={me_ref} className={classNames('lg:col-offset-3 xl:col-offset-3 bg-gray-800 shadow-8 mb-2', { 'fadeinright animation-duration-1000 animation-iteration-1': me_visible },
                     { 'fadeoutright animation-duration-1000 animation-iteration-1': !me_visible })}>
                         <div className='grid'>
-                            <div className='col-6'>
+                            <div className='lg:col-6 xl:col-6'>
                         <div dangerouslySetInnerHTML={{ __html: me! }} />
                             </div>
-                            <div className='col'>
-                    <Carousel value={me_images} numVisible={1} numScroll={1} className="custom-carousel" circular
+                            <div className='lg:col-6 xl:col-6'>
+                    <Carousel value={me_images} numVisible={1} numScroll={1} className="custom-carousel relative" circular
                         autoplayInterval={1500} itemTemplate={imageTemplate} />
                             </div>
                         </div>
                 </Card>
-                <Card title={soccer_title} ref={soccer_ref} className={classNames('col-9 bg-gray-800 shadow-8 mb-2', { 'fadeinleft animation-duration-1000 animation-iteration-1': soccer_visible },
+                <Card title={soccer_title} ref={soccer_ref} className={classNames('lg:col-9 xl:col-9 bg-gray-800 shadow-8 mb-2', { 'fadeinleft animation-duration-1000 animation-iteration-1': soccer_visible },
                     { 'fadeoutleft animation-duration-1000 animation-iteration-1': !soccer_visible })}>
                         <div className='grid'>
-                            <div className='col-6'>
+                            <div className='lg:col-6 xl:col-6'>
                         <div dangerouslySetInnerHTML={{ __html: soccer! }} />
                             </div>
-                            <div className='col w-6'>
-                    <Carousel value={socc_images} numVisible={1} numScroll={1} className="custom-carousel" circular
+                            <div className='lg:col-6 xl:col-6'>
+                    <Carousel value={socc_images} numVisible={1} numScroll={1} className="custom-carousel relative" circular
                         autoplayInterval={1500} itemTemplate={imageTemplate} />
                             </div>
                         </div>
                 </Card>
-                <Card title={gym_title} ref={gym_ref} className={classNames('col-offset-3 bg-gray-800 shadow-8', { 'fadeinright animation-duration-1000 animation-iteration-1': gym_visible },
+                <Card title={gym_title} ref={gym_ref} className={classNames('lg:col-offset-3 xl:col-offset-3 bg-gray-800 shadow-8', { 'fadeinright animation-duration-1000 animation-iteration-1': gym_visible },
                     { 'fadeoutright animation-duration-1000 animation-iteration-1': !gym_visible })}>
                         <div className='grid'>
-                            <div className='col-6'>
+                            <div className='lg:col-6 xl:col-6'>
                         <div dangerouslySetInnerHTML={{ __html: gym! }} />
                             </div>
-                            <div className='col'>
-                    <Carousel value={gym_images} numVisible={1} numScroll={1} className="custom-carousel" circular
+                            <div className='lg:col-6 xl:col-6'>
+                    <Carousel value={gym_images} numVisible={1} numScroll={1} className="custom-carousel relative" circular
                         autoplayInterval={1500} itemTemplate={imageTemplate} />
                             </div>
                         </div>

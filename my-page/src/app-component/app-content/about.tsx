@@ -28,12 +28,16 @@ const About = () => {
     const fstack_title = getTextFromJSON(context.language, "about_content.fstack_title");
     const capstone_title = getTextFromJSON(context.language, "about_content.capstone_title");
     const ra_title = getTextFromJSON(context.language, "about_content.ra_title");
+    const ubee_title = getTextFromJSON(context.language, "about_content.ubee_title");
+
 
     const wcc = getTextFromJSON(context.language, "about_content.wcc");
     const wdev = getTextFromJSON(context.language, "about_content.wdev");
     const fstack = getTextFromJSON(context.language, "about_content.fstack");
     const capstone = getTextFromJSON(context.language, "about_content.capstone");
     const ra = getTextFromJSON(context.language, "about_content.ra");
+    const ubee = getTextFromJSON(context.language, "about_content.ubee");
+
 
     //1st tab refs and bools
     const wcc_ref = useRef(null);
@@ -41,12 +45,16 @@ const About = () => {
     const fstack_ref = useRef(null);
     const capstone_ref = useRef(null);
     const ra_ref = useRef(null);
+    const ubee_ref = useRef(null);
+
 
     const wcc_visible = useIntersectionObserver(wcc_ref);
     const wdev_visible = useIntersectionObserver(wdev_ref);
     const fstack_visible = useIntersectionObserver(fstack_ref);
     const capstone_visible = useIntersectionObserver(capstone_ref);
     const ra_visible = useIntersectionObserver(ra_ref);
+    const ubee_visible = useIntersectionObserver(ubee_ref);
+
 
     //2nd tab images
     const imageTemplate = (img: string) => {
@@ -154,6 +162,11 @@ const About = () => {
                     { 'fadeoutleft animation-duration-1000 animation-iteration-1': !ra_visible })}>
                     <img src="./uottawa.png" alt='' className='mb-1 right-100 sticky max-h-4rem max-w-4rem' />
                     <div dangerouslySetInnerHTML={{ __html: ra! }} />
+                </Card>
+                  <Card title={ubee_title} ref={ubee_ref} className={classNames('lg:col-offset-6 xl:col-offset-6 bg-gray-800 shadow-8 mb-4 lg:mb-0 xl:mb-0', { 'fadeinright animation-duration-1000 animation-iteration-1': ubee_visible },
+                    { 'fadeoutright animation-duration-1000 animation-iteration-1': !ubee_visible })}>
+                    <img src="./ubee-icon.png" alt='' className='mb-1 right-100 sticky max-h-4rem max-w-4rem' />
+                    <div dangerouslySetInnerHTML={{ __html: ubee! }} />
                 </Card>
             </TabPanel>
             <TabPanel header={more} leftIcon="pi pi-plus mr-2">

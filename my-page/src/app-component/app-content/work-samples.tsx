@@ -2,13 +2,28 @@ import { Splitter, SplitterPanel } from 'primereact/splitter';
 import { TabMenu } from 'primereact/tabmenu';
 import { useLanguageContext } from "../../contexts/language-context";
 import { getTextFromJSON } from "../../utils/languageUtils";
-import { useState } from 'react';
+import { useState, useRef } from 'react';
 import { classNames } from 'primereact/utils';
-import Sudoku from '../projects/sudoku';
 import Players from '../projects/players';
-import { Button } from 'primereact/button';
 
-type Project = "web" | "snake" | "sudoku" | "api" | "calculator"
+type Project = "ubee" | "web" | "snake"  | "api";
+
+const UbeeIcon = () => (
+  <svg viewBox="0 0 26 26" width="1.2em" height="1.2em" fill="currentColor" style={{ marginRight: '0.5rem' }}>
+    <defs>
+      <mask id="ubeeDollarMask">
+        <rect width="26" height="26" fill="white" />
+        {/* $ punched out of the white circle — reveals house color beneath */}
+        <text x="19.5" y="21.5" textAnchor="middle" fontSize="8" fontWeight="900" fontFamily="sans-serif" fill="black">$</text>
+      </mask>
+    </defs>
+    {/* Mask applied to the group cuts $ through both house and circle → shows background */}
+    <g mask="url(#ubeeDollarMask)">
+      <path fillRule="evenodd" d="M13 2L1 11.5h3V22h18V11.5h3L13 2z M8 13h3v3H8z M12 13h3v3h-3z M8 17h3v3H8z M12 17h3v3h-3z" />
+      <circle cx="19.5" cy="19" r="5" fill="white" />
+    </g>
+  </svg>
+);
 
 const Work = () => {
   //context
@@ -17,14 +32,13 @@ const Work = () => {
   //links
   const webLink = "https://github.com/KarimBenhallam/KarimBenhallam.github.io/blob/main/my-page/README.md";
   const snakeLink = "https://github.com/KarimBenhallam/KarimBenhallam.github.io/blob/main/my-page/public/work_samples/snake/README.md";
-  const sudokuLink = "";
   const apiLink = "https://github.com/KarimBenhallam/KarimBenhallam.github.io/blob/main/C%23Project/README.md";
-  const calculatorLink = "";
+  const ubeeLink = context.language === "en" ? "https://ubee.com/en/" : "https://ubee.com/";
 
   //states
-  const [project, setProject] = useState<Project>("web");
+  const [project, setProject] = useState<Project>("ubee");
   const [isWindowOpen, setIsWindowOpen] = useState(false);
-  const [link, setLink] = useState(webLink);
+  const [link, setLink] = useState(ubeeLink);
 
 
 
@@ -33,20 +47,39 @@ const Work = () => {
   const website_text = getTextFromJSON(context.language, "work_content.website_text");
   const website = getTextFromJSON(context.language, "work_content.website");
   const snake = getTextFromJSON(context.language, "work_content.snake");
-  const sudoku = getTextFromJSON(context.language, "work_content.sudoku");
   const api = getTextFromJSON(context.language, "work_content.api");
-  const calculator = getTextFromJSON(context.language, "work_content.calculator");
   const button = getTextFromJSON(context.language, "work_content.button");
+  const button_ubee = getTextFromJSON(context.language, "work_content.button_ubee");
 
 
+
+  const snakeIframeRef = useRef<HTMLIFrameElement>(null);
 
   const runSnake = () => {
-    window.open("https://karimbenhallam.github.io/work_samples/snake/build/web/index.html", "snakeFrame")
+    window.open(`${window.location.origin}/work_samples/snake/build/web/index.html`, "snakeFrame")
     setIsWindowOpen(true);
+  };
+
+  const suppressSnakeLeavePrompt = () => {
+    try {
+      snakeIframeRef.current?.contentWindow?.addEventListener(
+        'beforeunload',
+        (e) => { e.stopImmediatePropagation(); },
+        true
+      );
+    } catch (_) {}
   };
 
 
   const items = [
+      {
+      label: "Ubee",
+      icon: <UbeeIcon />,
+      command: () => {
+        setProject("ubee")
+        setLink(ubeeLink);
+      }
+    },
     {
       label: website,
       icon: 'pi pi-globe',
@@ -67,14 +100,6 @@ const Work = () => {
       }
     },
     {
-      label: sudoku,
-      icon: 'pi pi-table',
-      command: () => {
-        setProject("sudoku")
-        setLink(sudokuLink);
-      }
-    },
-    {
       label: api,
       icon: 'pi pi-server',
       command: () => {
@@ -82,14 +107,6 @@ const Work = () => {
         setLink(apiLink);
       }
     },
-    {
-      label: calculator,
-      icon: 'pi pi-calculator',
-      command: () => {
-        setProject("calculator")
-        setLink(calculatorLink);
-      }
-    }
   ];
 
 
@@ -101,7 +118,7 @@ const Work = () => {
         <SplitterPanel className="flex flex-column" size={25}>
           <div dangerouslySetInnerHTML={{ __html: intro! }} />
           <div className='justify-content-center'>
-            <a href={link} target="_blank" rel="noopener noreferrer" className="p-button font-bold mb-2">{button}</a>
+            <a href={project !== "ubee" ? link : undefined} target="_blank" rel="noopener noreferrer" className={`p-button font-bold mb-2${project === "ubee" ? " p-disabled" : ""}`} aria-disabled={project === "ubee"}>{project === "ubee" ? button_ubee : button}</a>
           </div>
         </SplitterPanel>
 
@@ -110,26 +127,23 @@ const Work = () => {
           <div className='relative'>
             <TabMenu model={items} />
             {/* iframe needs to always exist as it's the target of window.open */}
-            <iframe title='snakeFrame' name='snakeFrame' className={classNames('w-12 h-30rem', { hidden: project !== "snake" })}></iframe>
+            <iframe ref={snakeIframeRef} title='snakeFrame' name='snakeFrame' className={classNames('w-12 h-30rem', { hidden: project !== "snake" })} onLoad={suppressSnakeLeavePrompt}></iframe>
 
-            <div>
+              <div>
+                {project === "ubee" && (
+                  <a href={ubeeLink} target="_blank" rel="noreferrer">
+                    <img src="/ubee_landing_page.png" alt="Ubee" className='w-12 mt-3' />
+                  </a>
+                )}
+              </div>
+
+              
+              <div>
               {project === "web" && (
                   <div dangerouslySetInnerHTML={{ __html: website_text! }} className='mt-5' />
-
               )}
             </div>
 
-            
-            <div>
-              {project === "sudoku" &&(
-                <div>
-                    {/* <Sudoku/> */}
-                  <img src="./to_be_deleted.jpg" alt="in development" className='h-26rem'/>
-
-                </div>
-              )}
-            </div>
-            
 
             < div>
               {project === "api" && (
@@ -137,13 +151,6 @@ const Work = () => {
               )}
             </div>
 
-            <div>
-              {project === "calculator" && (
-                <div>
-                  <img src="./to_be_deleted.jpg" alt="in development" className='h-26rem'/>
-                </div>
-              )}
-            </div>
 
           </div>
         </SplitterPanel>

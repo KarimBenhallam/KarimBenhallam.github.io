@@ -467,5 +467,19 @@
     "winnerLastName": "Messi",
     "winnerPosition": "attacker",
     "winnerFullName": "Lionel Messi"
+  },
+  {
+    "year": "2024",
+    "winnerFirstName": "Rodri",
+    "winnerLastName": "Hernandez",
+    "winnerPosition": "midfielder",
+    "winnerFullName": "Rodri Hernandez"
+  },
+  {
+    "year": "2025",
+    "winnerFirstName": "Ousmane",
+    "winnerLastName": "Dembele",
+    "winnerPosition": "attacker",
+    "winnerFullName": "Ousmane Dembele"
   }
 ]

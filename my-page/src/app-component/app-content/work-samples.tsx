@@ -124,34 +124,26 @@ const Work = () => {
 
 
         <SplitterPanel className="flex justify-content-center" size={75} minSize={50}>
-          <div className='relative'>
+          <div className='relative w-full'>
             <TabMenu model={items} />
-            {/* iframe needs to always exist as it's the target of window.open */}
-            <iframe ref={snakeIframeRef} title='snakeFrame' name='snakeFrame' className={classNames('w-12 h-30rem', { hidden: project !== "snake" })} onLoad={suppressSnakeLeavePrompt}></iframe>
+            <div style={{ height: '45rem', overflowY: project === 'snake' ? 'hidden' : 'auto', padding: '0.75rem' }}>
+              {/* iframe needs to always exist as it's the target of window.open */}
+              <iframe ref={snakeIframeRef} title='snakeFrame' name='snakeFrame' className={classNames('w-full h-full', { hidden: project !== "snake" })} onLoad={suppressSnakeLeavePrompt}></iframe>
 
-              <div>
-                {project === "ubee" && (
-                  <a href={ubeeLink} target="_blank" rel="noreferrer">
-                    <img src="/ubee_landing_page.png" alt="Ubee" className='w-12 mt-3' />
-                  </a>
-                )}
-              </div>
-
-              
-              <div>
-              {project === "web" && (
-                  <div dangerouslySetInnerHTML={{ __html: website_text! }} className='mt-5' />
+              {project === "ubee" && (
+                <a href={ubeeLink} target="_blank" rel="noreferrer">
+                  <img src="/ubee_landing_page.png" alt="Ubee" className='mt-3' style={{ maxWidth: '100%', maxHeight: '100%', objectFit: 'contain' }} />
+                </a>
               )}
-            </div>
 
+              {project === "web" && (
+                <div dangerouslySetInnerHTML={{ __html: website_text! }} className='mt-5' />
+              )}
 
-            < div>
               {project === "api" && (
                 <Players />
               )}
             </div>
-
-
           </div>
         </SplitterPanel>
       </Splitter>

@@ -1,13 +1,522 @@
+/* ─── Design Tokens ────────────────────────────────────────────────────────── */
+:root {
+  /* Typography */
+  --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --font-mono: 'JetBrains Mono', 'Fira Code', 'Courier New', monospace;
+
+  /* Type scale */
+  --text-xs:   0.75rem;   /* 12px */
+  --text-sm:   0.875rem;  /* 14px */
+  --text-base: 1rem;      /* 16px */
+  --text-lg:   1.125rem;  /* 18px */
+  --text-xl:   1.25rem;   /* 20px */
+  --text-2xl:  1.5rem;    /* 24px */
+  --text-3xl:  2rem;      /* 32px */
+  --text-4xl:  2.5rem;    /* 40px */
+  --text-5xl:  3rem;      /* 48px */
+  --text-6xl:  3.75rem;   /* 60px */
+
+  /* Colors — backgrounds */
+  --bg-base:     #0A0A0B;
+  --bg-elevated: #111113;
+  --bg-subtle:   #1A1A1D;
+  --bg-overlay:  #222226;
+
+  /* Colors — borders */
+  --border:             #222227;
+  --border-interactive: #333339;
+  --border-focus:       #C084FC;
+
+  /* Colors — text */
+  --text-primary:   #F2F2F3;
+  --text-secondary: #8A8A94;
+  --text-tertiary:  #5A5A64;
+
+  /* Colors — accent (soft violet) */
+  --accent:        #C084FC;
+  --accent-hover:  #D8A6FF;
+  --accent-muted:  rgba(192, 132, 252, 0.12);
+  --accent-border: rgba(192, 132, 252, 0.25);
+
+  /* Colors — semantic */
+  --color-success: #4ADE80;
+  --color-warning: #FBBF24;
+  --color-error:   #F87171;
+
+  /* Spacing scale (8px base) */
+  --space-1:  0.25rem;   /* 4px  */
+  --space-2:  0.5rem;    /* 8px  */
+  --space-3:  0.75rem;   /* 12px */
+  --space-4:  1rem;      /* 16px */
+  --space-5:  1.25rem;   /* 20px */
+  --space-6:  1.5rem;    /* 24px */
+  --space-8:  2rem;      /* 32px */
+  --space-10: 2.5rem;    /* 40px */
+  --space-12: 3rem;      /* 48px */
+  --space-16: 4rem;      /* 64px */
+  --space-20: 5rem;      /* 80px */
+  --space-24: 6rem;      /* 96px */
+  --space-32: 8rem;      /* 128px */
+
+  /* Layout */
+  --container-max: 1200px;
+  --container-pad: var(--space-6);
+
+  /* Radii */
+  --radius-sm: 4px;
+  --radius-md: 8px;
+  --radius-lg: 12px;
+  --radius-xl: 16px;
+
+  /* Shadows */
+  --shadow-sm: 0 1px 3px rgba(0,0,0,0.4), 0 1px 2px rgba(0,0,0,0.3);
+  --shadow-md: 0 4px 12px rgba(0,0,0,0.5), 0 2px 4px rgba(0,0,0,0.3);
+  --shadow-lg: 0 8px 32px rgba(0,0,0,0.6), 0 4px 8px rgba(0,0,0,0.3);
+
+  /* Transitions */
+  --transition-fast:   120ms ease;
+  --transition-base:   200ms ease;
+  --transition-slow:   350ms ease;
+}
+
+/* ─── Reset & Base ─────────────────────────────────────────────────────────── */
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
+  background-color: var(--bg-base);
+  color: var(--text-primary);
+  font-family: var(--font-sans);
+  font-size: var(--text-base);
+  line-height: 1.6;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
+/* ─── Typography ───────────────────────────────────────────────────────────── */
+h1, h2, h3, h4, h5, h6 {
+  margin: 0;
+  font-family: var(--font-sans);
+  font-weight: 600;
+  line-height: 1.2;
+  color: var(--text-primary);
+  letter-spacing: -0.02em;
+}
+
+p {
+  margin: 0 0 var(--space-4);
+  color: var(--text-secondary);
+  line-height: 1.75;
+}
+
+p:last-child {
+  margin-bottom: 0;
+}
+
+a {
+  color: var(--accent);
+  text-decoration: none;
+  transition: color var(--transition-fast);
+}
+
+a:hover {
+  color: var(--accent-hover);
+}
+
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+  font-family: var(--font-mono);
+  font-size: 0.9em;
+  background: var(--bg-subtle);
+  padding: 0.15em 0.4em;
+  border-radius: var(--radius-sm);
+  color: var(--accent);
+}
+
+/* ─── Layout Utilities ─────────────────────────────────────────────────────── */
+.kb-container {
+  width: 100%;
+  max-width: var(--container-max);
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: var(--container-pad);
+  padding-right: var(--container-pad);
+}
+
+.kb-section {
+  padding-top: var(--space-24);
+  padding-bottom: var(--space-24);
+}
+
+.kb-section-alt {
+  background-color: var(--bg-elevated);
+}
+
+/* ─── PrimeReact Theme Overrides ───────────────────────────────────────────── */
+
+/* Global body background override */
+.p-component {
+  font-family: var(--font-sans) !important;
+}
+
+/* Menubar */
+header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.p-menubar {
+  background: rgba(10, 10, 11, 0.85) !important;
+  border: none !important;
+  border-bottom: 1px solid var(--border) !important;
+  border-radius: 0 !important;
+  padding: var(--space-3) var(--space-6) !important;
+  backdrop-filter: blur(12px) !important;
+  -webkit-backdrop-filter: blur(12px) !important;
+}
+
+.p-menubar .p-menubar-root-list > .p-menuitem > .p-menuitem-content > .p-menuitem-link {
+  color: var(--text-secondary) !important;
+  font-size: var(--text-sm) !important;
+  font-weight: 500 !important;
+  padding: var(--space-2) var(--space-3) !important;
+  border-radius: var(--radius-md) !important;
+  transition: color var(--transition-fast), background var(--transition-fast) !important;
+  gap: var(--space-2) !important;
+}
+
+.p-menubar .p-menubar-root-list > .p-menuitem > .p-menuitem-content > .p-menuitem-link:hover,
+.p-menubar .p-menubar-root-list > .p-menuitem.p-menuitem-active > .p-menuitem-content > .p-menuitem-link {
+  background: var(--bg-subtle) !important;
+  color: var(--text-primary) !important;
+}
+
+.p-menubar .p-menubar-root-list > .p-menuitem > .p-menuitem-content > .p-menuitem-link .p-menuitem-icon {
+  color: var(--text-tertiary) !important;
+  font-size: var(--text-sm) !important;
+}
+
+.p-menubar .p-menubar-root-list > .p-menuitem > .p-menuitem-content > .p-menuitem-link:hover .p-menuitem-icon {
+  color: var(--accent) !important;
+}
+
+/* Active nav item */
+.p-menuitem-active-custom .p-menuitem-link {
+  color: var(--text-primary) !important;
+  background: var(--accent-muted) !important;
+}
+
+.p-menuitem-active-custom .p-menuitem-link .p-menuitem-icon {
+  color: var(--accent) !important;
+}
+
+/* Dropdown (language toggle) */
+.p-dropdown {
+  background: transparent !important;
+  border: 1px solid var(--border-interactive) !important;
+  border-radius: var(--radius-md) !important;
+  transition: border-color var(--transition-fast) !important;
+}
+
+.p-dropdown:hover,
+.p-dropdown.p-focus {
+  border-color: var(--border-focus) !important;
+  box-shadow: 0 0 0 1px var(--accent-border) !important;
+}
+
+.p-dropdown .p-dropdown-label {
+  color: var(--text-secondary) !important;
+  font-size: var(--text-sm) !important;
+  font-weight: 500 !important;
+  padding: var(--space-2) var(--space-3) !important;
+}
+
+.p-dropdown-panel {
+  background: var(--bg-elevated) !important;
+  border: 1px solid var(--border-interactive) !important;
+  border-radius: var(--radius-md) !important;
+  box-shadow: var(--shadow-md) !important;
+}
+
+.p-dropdown-panel .p-dropdown-item {
+  color: var(--text-secondary) !important;
+  font-size: var(--text-sm) !important;
+  padding: var(--space-2) var(--space-4) !important;
+}
+
+.p-dropdown-panel .p-dropdown-item:hover,
+.p-dropdown-panel .p-dropdown-item.p-highlight {
+  background: var(--accent-muted) !important;
+  color: var(--text-primary) !important;
+}
+
+/* Cards */
+.p-card {
+  background: var(--bg-elevated) !important;
+  border: 1px solid var(--border) !important;
+  border-radius: var(--radius-lg) !important;
+  box-shadow: var(--shadow-sm) !important;
+  transition: border-color var(--transition-base), box-shadow var(--transition-base) !important;
+}
+
+.p-card:hover {
+  border-color: var(--border-interactive) !important;
+  box-shadow: var(--shadow-md) !important;
+}
+
+.p-card .p-card-title {
+  font-size: var(--text-xl) !important;
+  font-weight: 600 !important;
+  color: var(--text-primary) !important;
+  letter-spacing: -0.02em !important;
+}
+
+.p-card .p-card-body {
+  padding: var(--space-6) !important;
+}
+
+/* TabView */
+.p-tabview .p-tabview-nav {
+  background: transparent !important;
+  border: none !important;
+  border-bottom: 1px solid var(--border) !important;
+  gap: var(--space-1) !important;
+}
+
+.p-tabview .p-tabview-nav li .p-tabview-nav-link {
+  background: transparent !important;
+  border: none !important;
+  border-bottom: 2px solid transparent !important;
+  color: var(--text-secondary) !important;
+  font-size: var(--text-sm) !important;
+  font-weight: 500 !important;
+  padding: var(--space-3) var(--space-4) !important;
+  margin-bottom: -1px !important;
+  transition: color var(--transition-fast), border-color var(--transition-fast) !important;
+}
+
+.p-tabview .p-tabview-nav li.p-highlight .p-tabview-nav-link {
+  border-bottom-color: var(--accent) !important;
+  color: var(--text-primary) !important;
+}
+
+.p-tabview .p-tabview-nav li:not(.p-highlight) .p-tabview-nav-link:hover {
+  color: var(--text-primary) !important;
+  background: var(--bg-subtle) !important;
+  border-radius: var(--radius-sm) var(--radius-sm) 0 0 !important;
+}
+
+.p-tabview .p-tabview-panels {
+  background: transparent !important;
+  padding: var(--space-8) 0 0 !important;
+}
+
+/* TabMenu */
+.p-tabmenu .p-tabmenu-nav {
+  background: transparent !important;
+  border-bottom: 1px solid var(--border) !important;
+}
+
+.p-tabmenu .p-tabmenu-nav .p-tabmenuitem .p-menuitem-link {
+  background: transparent !important;
+  border: none !important;
+  border-bottom: 2px solid transparent !important;
+  color: var(--text-secondary) !important;
+  font-size: var(--text-sm) !important;
+  font-weight: 500 !important;
+  padding: var(--space-3) var(--space-4) !important;
+  margin-bottom: -1px !important;
+  transition: color var(--transition-fast), border-color var(--transition-fast) !important;
+}
+
+.p-tabmenu .p-tabmenu-nav .p-tabmenuitem.p-highlight .p-menuitem-link {
+  border-bottom-color: var(--accent) !important;
+  color: var(--text-primary) !important;
+}
+
+.p-tabmenu .p-tabmenu-nav .p-tabmenuitem:not(.p-highlight) .p-menuitem-link:hover {
+  color: var(--text-primary) !important;
+}
+
+/* DataTable */
+.p-datatable .p-datatable-header {
+  background: transparent !important;
+  border: none !important;
+  padding: 0 0 var(--space-4) 0 !important;
+}
+
+.p-datatable .p-datatable-thead > tr > th {
+  background: var(--bg-subtle) !important;
+  color: var(--text-secondary) !important;
+  border-color: var(--border) !important;
+  font-size: var(--text-sm) !important;
+  font-weight: 600 !important;
+  padding: var(--space-2) var(--space-4) !important;
+  white-space: nowrap !important;
+}
+
+.p-datatable .p-sortable-column-icon {
+  margin-left: var(--space-2) !important;
+}
+
+.p-datatable .p-datatable-tbody > tr {
+  background: transparent !important;
+  color: var(--text-primary) !important;
+  transition: background var(--transition-fast) !important;
+}
+
+.p-datatable .p-datatable-tbody > tr:hover {
+  background: var(--bg-subtle) !important;
+}
+
+.p-datatable .p-datatable-tbody > tr > td {
+  border-color: var(--border) !important;
+  font-size: var(--text-base) !important;
+  padding: var(--space-4) var(--space-4) !important;
+}
+
+.p-paginator {
+  background: transparent !important;
+  border-color: var(--border) !important;
+  padding: var(--space-3) 0 !important;
+}
+
+.p-paginator .p-paginator-page,
+.p-paginator .p-paginator-prev,
+.p-paginator .p-paginator-next,
+.p-paginator .p-paginator-first,
+.p-paginator .p-paginator-last {
+  color: var(--text-secondary) !important;
+  min-width: 2.5rem !important;
+  height: 2.5rem !important;
+  border-radius: var(--radius-sm) !important;
+  font-size: var(--text-sm) !important;
+}
+
+.p-paginator .p-paginator-page.p-highlight {
+  background: var(--accent-muted) !important;
+  color: var(--accent) !important;
+}
+
+/* Search icon inside input — PrimeReact 10 no longer auto-positions p-input-icon-left */
+.p-input-icon-left {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+}
+
+.p-input-icon-left > i.pi {
+  position: absolute;
+  left: var(--space-3);
+  color: var(--text-tertiary);
+  pointer-events: none;
+  z-index: 1;
+}
+
+.p-input-icon-left > .p-inputtext {
+  padding-left: calc(var(--space-3) * 2 + 1em) !important;
+}
+
+/* InputText */
+.p-inputtext {
+  background: var(--bg-subtle) !important;
+  border: 1px solid var(--border-interactive) !important;
+  color: var(--text-primary) !important;
+  font-size: var(--text-sm) !important;
+  border-radius: var(--radius-md) !important;
+  padding: var(--space-2) var(--space-3) !important;
+  transition: border-color var(--transition-fast), box-shadow var(--transition-fast) !important;
+}
+
+.p-inputtext:focus {
+  border-color: var(--border-focus) !important;
+  box-shadow: 0 0 0 1px var(--accent-border) !important;
+  outline: none !important;
+}
+
+/* Splitter */
+.p-splitter {
+  background: transparent !important;
+  border: 1px solid var(--border) !important;
+  border-radius: var(--radius-lg) !important;
+}
+
+.p-splitter-gutter {
+  background: var(--border) !important;
+}
+
+.p-splitter-gutter:hover {
+  background: var(--border-interactive) !important;
+}
+
+/* Carousel */
+.p-carousel .p-carousel-indicators .p-carousel-indicator button {
+  background: var(--border-interactive) !important;
+  width: 8px !important;
+  height: 8px !important;
+  border-radius: 50% !important;
+  transition: background var(--transition-fast) !important;
+}
+
+.p-carousel .p-carousel-indicators .p-carousel-indicator.p-highlight button {
+  background: var(--accent) !important;
+}
+
+.p-carousel .p-carousel-prev,
+.p-carousel .p-carousel-next {
+  color: var(--text-secondary) !important;
+  background: var(--bg-subtle) !important;
+  border: 1px solid var(--border) !important;
+  border-radius: var(--radius-md) !important;
+  width: 2rem !important;
+  height: 2rem !important;
+  transition: background var(--transition-fast), color var(--transition-fast) !important;
+}
+
+.p-carousel .p-carousel-prev:hover,
+.p-carousel .p-carousel-next:hover {
+  background: var(--bg-overlay) !important;
+  color: var(--text-primary) !important;
+  border-color: var(--border-interactive) !important;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--border-interactive);
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--text-tertiary);
+}
+
+/* ─── Responsive ───────────────────────────────────────────────────────────── */
+@media (max-width: 767px) {
+  :root {
+    --container-pad: var(--space-4);
+  }
+
+  .kb-section {
+    padding-top: var(--space-16);
+    padding-bottom: var(--space-16);
+  }
+
+  .p-menubar {
+    padding: var(--space-2) var(--space-4) !important;
+  }
 }

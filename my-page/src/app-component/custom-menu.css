@@ -1,0 +1,55 @@
+/* ─── Logo button ──────────────────────────────────────────────────────────── */
+.kb-logo-btn {
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  margin-right: var(--space-4);
+  border-radius: var(--radius-md);
+  transition: opacity var(--transition-fast);
+}
+
+.kb-logo-btn:hover {
+  opacity: 0.8;
+}
+
+.kb-mark {
+  display: block;
+}
+
+/* ─── Language toggle ──────────────────────────────────────────────────────── */
+.kb-lang-toggle {
+  display: flex;
+  align-items: center;
+  gap: var(--space-1);
+}
+
+.kb-lang-btn {
+  background: none;
+  border: none;
+  padding: var(--space-1) var(--space-2);
+  font-family: var(--font-sans);
+  font-size: var(--text-sm);
+  font-weight: 500;
+  color: var(--text-tertiary);
+  cursor: pointer;
+  border-radius: var(--radius-sm);
+  transition: color var(--transition-fast);
+  line-height: 1;
+}
+
+.kb-lang-btn:hover {
+  color: var(--text-primary);
+}
+
+.kb-lang-btn--active {
+  color: var(--accent);
+}
+
+.kb-lang-sep {
+  color: var(--border-interactive);
+  font-size: var(--text-sm);
+  user-select: none;
+}

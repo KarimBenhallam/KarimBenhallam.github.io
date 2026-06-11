@@ -1,226 +1,260 @@
-import React, { useRef, useState } from 'react';
+import { useState } from 'react';
 import { TabView, TabPanel } from 'primereact/tabview';
-import { Card } from 'primereact/card';
 import { useLanguageContext } from '../../contexts/language-context';
 import { getTextFromJSON } from '../../utils/languageUtils';
-import { useIntersectionObserver } from 'primereact/hooks';
 import { classNames } from 'primereact/utils';
 import { Carousel } from 'primereact/carousel';
+import { useRevealOnce } from '../../utils/useRevealOnce';
+import './about.css';
 
+// ── Types ─────────────────────────────────────────────────────────────────────
 
+type TranslateFn = (key: string) => string | undefined;
+type CallbackRef = (el: HTMLDivElement | null) => void;
 
+interface ExpCardProps {
+  refProp: CallbackRef;
+  revealed: boolean;
+  translate: TranslateFn;
+  logoSrc: string;
+  logoAlt: string;
+  titleKey: string;
+  contentKey: string;
+  period: string;
+  tags: string[];
+  align?: 'left' | 'right';
+}
 
+interface PersonalCardProps {
+  refProp: CallbackRef;
+  revealed: boolean;
+  translate: TranslateFn;
+  titleKey: string;
+  contentKey: string;
+  images: { src: string; alt: string }[];
+  align?: 'left' | 'right';
+}
+
+// ── Image carousel template ───────────────────────────────────────────────────
+
+const imageTemplate = (item: { src: string; alt: string }) => (
+  <div className="carousel-slide">
+    <img src={item.src} alt={item.alt} className="carousel-slide__img" />
+  </div>
+);
+
+// ── Experience card — defined outside About so its reference is stable ────────
+
+const ExpCard = ({
+  refProp, revealed, translate,
+  logoSrc, logoAlt, titleKey, contentKey, period, tags, align = 'left',
+}: ExpCardProps) => (
+  <div
+    ref={refProp}
+    className={classNames(
+      'exp-card',
+      `exp-card--${align}`,
+      revealed ? (align === 'left' ? 'reveal-left' : 'reveal-right') : 'reveal-hidden',
+    )}
+  >
+    <div className="exp-card__header">
+      <img src={logoSrc} alt={logoAlt} className="exp-card__logo" />
+      <div className="exp-card__meta">
+        <h3 className="exp-card__title">{translate(titleKey)}</h3>
+        <span className="exp-card__period">{period}</span>
+      </div>
+    </div>
+    <div className="exp-card__body" dangerouslySetInnerHTML={{ __html: translate(contentKey)! }} />
+    <div className="exp-card__tags">
+      {tags.map(tag => (
+        <span key={tag} className="exp-tag">{tag}</span>
+      ))}
+    </div>
+  </div>
+);
+
+// ── Personal card — defined outside About so its reference is stable ──────────
+
+const PersonalCard = ({
+  refProp, revealed, translate, titleKey, contentKey, images, align = 'left',
+}: PersonalCardProps) => (
+  <div
+    ref={refProp}
+    className={classNames(
+      'personal-card',
+      `personal-card--${align}`,
+      revealed ? (align === 'left' ? 'reveal-left' : 'reveal-right') : 'reveal-hidden',
+    )}
+  >
+    <h3 className="personal-card__title">{translate(titleKey)}</h3>
+    <div className="personal-card__grid">
+      <div
+        className="personal-card__text"
+        dangerouslySetInnerHTML={{ __html: translate(contentKey)! }}
+      />
+      <div className="personal-card__media">
+        <Carousel
+          value={images}
+          numVisible={1}
+          numScroll={1}
+          circular
+          itemTemplate={imageTemplate}
+        />
+      </div>
+    </div>
+  </div>
+);
+
+// ── About page ────────────────────────────────────────────────────────────────
 
 const About = () => {
-    const context = useLanguageContext();
+  const context = useLanguageContext();
+  const [activeIndex, setActiveIndex] = useState(0);
+  const isEn = context.language === 'en';
 
-    //useState makes it clear which tab is active, preventing bugs with the animations
-    const [activeIndex, setActiveIndex] = useState(0);
+  const t: TranslateFn = (key: string) => getTextFromJSON(context.language, key);
 
+  // ── Experience refs — each fires once, never resets ───────────────────────
+  const [ubee_ref,     ubee_revealed]     = useRevealOnce();
+  const [fstack_ref,   fstack_revealed]   = useRevealOnce();
+  const [capstone_ref, capstone_revealed] = useRevealOnce();
+  const [ra_ref,       ra_revealed]       = useRevealOnce();
+  const [wdev_ref,     wdev_revealed]     = useRevealOnce();
+  const [wcc_ref,      wcc_revealed]      = useRevealOnce();
 
-    //tab titles
-    const overview = getTextFromJSON(context.language, "about_content.overview");
-    const more = getTextFromJSON(context.language, "about_content.more");
+  // ── Personal refs ─────────────────────────────────────────────────────────
+  const [morocco_ref, morocco_revealed] = useRevealOnce();
+  const [me_ref,      me_revealed]      = useRevealOnce();
+  const [soccer_ref,  soccer_revealed]  = useRevealOnce();
+  const [gym_ref,     gym_revealed]     = useRevealOnce();
 
-    //1st tab content
-    const wcc_title = getTextFromJSON(context.language, "about_content.wcc_title");
-    const wdev_title = getTextFromJSON(context.language, "about_content.wdev_title");
-    const fstack_title = getTextFromJSON(context.language, "about_content.fstack_title");
-    const capstone_title = getTextFromJSON(context.language, "about_content.capstone_title");
-    const ra_title = getTextFromJSON(context.language, "about_content.ra_title");
-    const ubee_title = getTextFromJSON(context.language, "about_content.ubee_title");
+  const mor_images = [
+    { src: './about_images/lunch.webp',       alt: 'Moroccan lunch' },
+    { src: './about_images/flag.webp',        alt: 'Moroccan flag' },
+    { src: './about_images/view.webp',        alt: 'View in Morocco' },
+    { src: './about_images/couscous.jpeg',    alt: 'Couscous' },
+    { src: './about_images/meat.jpeg',        alt: 'Grilled meat' },
+    { src: './about_images/beach.jpeg',       alt: 'Moroccan beach' },
+    { src: './about_images/breakfast.jpg',    alt: 'Moroccan breakfast' },
+    { src: './about_images/sheep.jpeg',       alt: 'Sheep in Morocco' },
+    { src: './about_images/sunset.webp',      alt: 'Sunset in Morocco' },
+    { src: './about_images/camel.jpeg',       alt: 'Camel in the desert' },
+    { src: './about_images/sea.jpeg',         alt: 'Sea in Morocco' },
+    { src: './about_images/palm.jpeg',        alt: 'Palm trees' },
+    { src: './about_images/beautiful.jpeg',   alt: 'Beautiful Moroccan landscape' },
+    { src: './about_images/restaurant.jpeg',  alt: 'Moroccan restaurant' },
+    { src: './about_images/nice_sunset.jpeg', alt: 'Sunset over Morocco' },
+    { src: './about_images/hassan2.jpeg',     alt: 'Hassan II Mosque' },
+  ];
 
+  const gym_images = [
+    { src: './about_images/calisthenics.jpg', alt: 'Calisthenics training' },
+    { src: './about_images/squat.jpg',        alt: 'Squat' },
+    { src: './about_images/handstand.jpg',    alt: 'Handstand' },
+    { src: './about_images/pullup.jpg',       alt: 'Pull-up' },
+  ];
 
-    const wcc = getTextFromJSON(context.language, "about_content.wcc");
-    const wdev = getTextFromJSON(context.language, "about_content.wdev");
-    const fstack = getTextFromJSON(context.language, "about_content.fstack");
-    const capstone = getTextFromJSON(context.language, "about_content.capstone");
-    const ra = getTextFromJSON(context.language, "about_content.ra");
-    const ubee = getTextFromJSON(context.language, "about_content.ubee");
+  const socc_images = [
+    { src: './about_images/shoes.jpg',    alt: 'Soccer cleats' },
+    { src: './about_images/ping.jpg',     alt: 'Playing soccer' },
+    { src: './about_images/game.webp',    alt: 'Soccer game' },
+    { src: './about_images/street.jpg',   alt: 'Street soccer' },
+    { src: './about_images/wcup.webp',    alt: '2022 World Cup' },
+    { src: './about_images/amrabat.webp', alt: 'Sofyan Amrabat' },
+  ];
 
+  const me_images = [
+    { src: './about_images/duo.jpg',     alt: 'Karim with a friend' },
+    { src: './about_images/bday.webp',   alt: 'Birthday celebration' },
+    { src: './about_images/dogs.jpg',    alt: 'Dogs' },
+    { src: './about_images/glasses.jpg', alt: 'Karim wearing glasses' },
+  ];
 
-    //1st tab refs and bools
-    const wcc_ref = useRef(null);
-    const wdev_ref = useRef(null);
-    const fstack_ref = useRef(null);
-    const capstone_ref = useRef(null);
-    const ra_ref = useRef(null);
-    const ubee_ref = useRef(null);
+  return (
+    <div className="about-page kb-container">
+      <TabView activeIndex={activeIndex} onTabChange={e => setActiveIndex(e.index)}>
 
+        <TabPanel header={t('about_content.overview')!} leftIcon="pi pi-briefcase mr-2">
+          <div className="exp-list">
+            <ExpCard
+              refProp={ubee_ref} revealed={ubee_revealed} translate={t}
+              logoSrc="./ubee-icon.png" logoAlt="Ubee"
+              titleKey="about_content.ubee_title" contentKey="about_content.ubee"
+              period={isEn ? 'October 2024 – Present' : 'Octobre 2024 – Présent'}
+              tags={['Angular', 'C#', 'TypeScript', 'Azure', 'SQL Server', 'Auth0', 'Ngrok', 'Docker']}
+              align="left"
+            />
+            <ExpCard
+              refProp={ra_ref} revealed={ra_revealed} translate={t}
+              logoSrc="./uottawa.png" logoAlt="University of Ottawa"
+              titleKey="about_content.ra_title" contentKey="about_content.ra"
+              period={isEn ? 'May 2023 – March 2026' : 'Mai 2023 – Mars 2026'}
+              tags={['C#', 'Python', 'PostgreSQL', 'FieldWorks', 'Regex']}
+              align="right"
+            />
+            <ExpCard
+              refProp={fstack_ref} revealed={fstack_revealed} translate={t}
+              logoSrc="./conceptio.png" logoAlt="Conceptio Technologies"
+              titleKey="about_content.fstack_title" contentKey="about_content.fstack"
+              period={isEn ? 'May 2022 – August 2022' : 'Mai 2022 – Août 2022'}
+              tags={['Angular', 'ASP.NET', 'C#', 'TypeScript', 'Auth0', 'XUnit']}
+              align="left"
+            />
+            <ExpCard
+              refProp={wdev_ref} revealed={wdev_revealed} translate={t}
+              logoSrc="./innovapost.jpg" logoAlt="Innovapost / Canada Post"
+              titleKey="about_content.wdev_title" contentKey="about_content.wdev"
+              period={isEn ? 'September 2021 – December 2021' : 'Septembre 2021 – Décembre 2021'}
+              tags={['HTML', 'CSS', 'JavaScript', 'SharePoint Online']}
+              align="right"
+            />
+            <ExpCard
+              refProp={capstone_ref} revealed={capstone_revealed} translate={t}
+              logoSrc="./uottawa.png" logoAlt="University of Ottawa"
+              titleKey="about_content.capstone_title" contentKey="about_content.capstone"
+              period={isEn ? 'January 2023 – December 2023' : 'Janvier 2023 – Décembre 2023'}
+              tags={['C#', 'Angular', 'Azure Synapse', 'SQL Server', 'LINQ']}
+              align="left"
+            />
+            <ExpCard
+              refProp={wcc_ref} revealed={wcc_revealed} translate={t}
+              logoSrc="./uottawa.png" logoAlt="University of Ottawa"
+              titleKey="about_content.wcc_title" contentKey="about_content.wcc"
+              period="2020"
+              tags={['Drupal', 'Uniweb', 'Content Management']}
+              align="right"
+            />
+          </div>
+        </TabPanel>
 
-    const wcc_visible = useIntersectionObserver(wcc_ref);
-    const wdev_visible = useIntersectionObserver(wdev_ref);
-    const fstack_visible = useIntersectionObserver(fstack_ref);
-    const capstone_visible = useIntersectionObserver(capstone_ref);
-    const ra_visible = useIntersectionObserver(ra_ref);
-    const ubee_visible = useIntersectionObserver(ubee_ref);
+        <TabPanel header={t('about_content.more')!} leftIcon="pi pi-heart mr-2">
+          <div className="personal-list">
+            <PersonalCard
+              refProp={morocco_ref} revealed={morocco_revealed} translate={t}
+              titleKey="about_content.morocco_title" contentKey="about_content.morocco"
+              images={mor_images} align="left"
+            />
+            <PersonalCard
+              refProp={me_ref} revealed={me_revealed} translate={t}
+              titleKey="about_content.me_title" contentKey="about_content.me"
+              images={me_images} align="right"
+            />
+            <PersonalCard
+              refProp={soccer_ref} revealed={soccer_revealed} translate={t}
+              titleKey="about_content.soccer_title" contentKey="about_content.soccer"
+              images={socc_images} align="left"
+            />
+            <PersonalCard
+              refProp={gym_ref} revealed={gym_revealed} translate={t}
+              titleKey="about_content.gym_title" contentKey="about_content.gym"
+              images={gym_images} align="right"
+            />
+          </div>
+        </TabPanel>
 
-
-    //2nd tab images
-    const imageTemplate = (img: string) => {
-        return (
-            <div className="border-1 surface-border border-round m-2 text-center py-5 px-3">
-                <img src={`${img}`} alt="" className="w-6 shadow-2" />
-            </div>
-        );
-    };
-    const mor_images: string[] = [
-        './about_images/lunch.webp',
-        './about_images/flag.webp',
-        './about_images/view.webp',
-        './about_images/couscous.jpeg',
-        './about_images/meat.jpeg',
-        './about_images/beach.jpeg',
-        './about_images/breakfast.jpg',
-        './about_images/sheep.jpeg',
-        './about_images/sunset.webp',
-        './about_images/camel.jpeg',
-        './about_images/sea.jpeg',
-        './about_images/palm.jpeg',
-        './about_images/beautiful.jpeg',
-        './about_images/restaurant.jpeg',
-        './about_images/nice_sunset.jpeg',
-        './about_images/hassan2.jpeg',
-    ];
-
-    const gym_images: string[] = [
-        './about_images/calisthenics.jpg',
-        './about_images/squat.jpg',
-        './about_images/handstand.jpg',
-        './about_images/pullup.jpg',
-    ];
-
-    const socc_images: string[] = [
-        './about_images/shoes.jpg',
-        './about_images/ping.jpg',
-        './about_images/game.webp',
-        './about_images/street.jpg',
-        './about_images/wcup.webp',
-        './about_images/amrabat.webp',
-    ];
-
-    const me_images: string[] = [
-        './about_images/duo.jpg',
-        './about_images/bday.webp',
-        './about_images/dogs.jpg',
-        './about_images/glasses.jpg',
-    ];
-
-    //2nd tab content
-    const morocco_title = getTextFromJSON(context.language, "about_content.morocco_title");
-    const me_title = getTextFromJSON(context.language, "about_content.me_title");
-    const soccer_title = getTextFromJSON(context.language, "about_content.soccer_title");
-    const gym_title = getTextFromJSON(context.language, "about_content.gym_title");
-
-
-    const morocco = getTextFromJSON(context.language, "about_content.morocco");
-    const me = getTextFromJSON(context.language, "about_content.me")
-    const soccer = getTextFromJSON(context.language, "about_content.soccer");
-    const gym = getTextFromJSON(context.language, "about_content.gym");
-
-
-
-    //2nd tab refs and bools
-    const morocco_ref = useRef(null);
-    const me_ref = useRef(null);
-    const soccer_ref = useRef(null);
-    const gym_ref = useRef(null);
-
-
-    const morocco_visible = useIntersectionObserver(morocco_ref);
-    const me_visible = useIntersectionObserver(me_ref);
-    const soccer_visible = useIntersectionObserver(soccer_ref);
-    const gym_visible = useIntersectionObserver(gym_ref);
-
-
-
-
-    return (
-        <TabView activeIndex={activeIndex} onTabChange={e => setActiveIndex(e.index)}>
-            <TabPanel header={overview} leftIcon="pi pi-search mr-2">
-                <Card title={wcc_title} ref={wcc_ref} className={classNames('lg:col-6 xl:col-6 bg-gray-800 shadow-8 mb-4 lg:mb-0 xl:mb-0', { 'fadeinleft animation-duration-1000 animation-iteration-1': wcc_visible },
-                    { 'fadeoutleft animation-duration-1000 animation-iteration-1': !wcc_visible })}>
-                    <img src="./uottawa.png" alt='' className='mb-1 right-100 sticky max-h-4rem max-w-4rem' />
-                    <div dangerouslySetInnerHTML={{ __html: wcc! }} />
-                </Card>
-                <Card title={wdev_title} ref={wdev_ref} className={classNames('lg:col-offset-6 xl:col-offset-6 bg-gray-800 shadow-8 mb-4 lg:mb-0 xl:mb-0', { 'fadeinright animation-duration-1000 animation-iteration-1': wdev_visible },
-                    { 'fadeoutright animation-duration-1000 animation-iteration-1': !wdev_visible })}>
-                    <img src="./innovapost.jpg" alt="" className='mb-1 right-100 sticky max-h-5rem max-w-7rem' />
-                    <div dangerouslySetInnerHTML={{ __html: wdev! }} />
-                </Card>
-                <Card title={fstack_title} ref={fstack_ref} className={classNames('lg:col-6 xl:col-6 bg-gray-800 shadow-8 mb-4 lg:mb-0 xl:mb-0', { 'fadeinleft animation-duration-1000 animation-iteration-1': fstack_visible },
-                    { 'fadeoutleft animation-duration-1000 animation-iteration-1': !fstack_visible })}>
-                    <img src="./conceptio.png" alt="" className='mb-1 right-100 sticky max-h-5rem w-7rem' />
-                    <div dangerouslySetInnerHTML={{ __html: fstack! }} />
-                </Card>
-                <Card title={capstone_title} ref={capstone_ref} className={classNames('lg:col-offset-6 xl:col-offset-6 bg-gray-800 shadow-8 mb-4 lg:mb-0 xl:mb-0', { 'fadeinright animation-duration-1000 animation-iteration-1': capstone_visible },
-                    { 'fadeoutright animation-duration-1000 animation-iteration-1': !capstone_visible })}>
-                    <img src="./uottawa.png" alt='' className='mb-1 right-100 sticky max-h-4rem max-w-4rem' />
-                    <div dangerouslySetInnerHTML={{ __html: capstone! }} />
-                </Card>
-                <Card title={ra_title} ref={ra_ref} className={classNames('lg:col-6 xl:col-6 bg-gray-800 shadow-8', { 'fadeinleft animation-duration-1000 animation-iteration-1': ra_visible },
-                    { 'fadeoutleft animation-duration-1000 animation-iteration-1': !ra_visible })}>
-                    <img src="./uottawa.png" alt='' className='mb-1 right-100 sticky max-h-4rem max-w-4rem' />
-                    <div dangerouslySetInnerHTML={{ __html: ra! }} />
-                </Card>
-                  <Card title={ubee_title} ref={ubee_ref} className={classNames('lg:col-offset-6 xl:col-offset-6 bg-gray-800 shadow-8 mb-4 lg:mb-0 xl:mb-0', { 'fadeinright animation-duration-1000 animation-iteration-1': ubee_visible },
-                    { 'fadeoutright animation-duration-1000 animation-iteration-1': !ubee_visible })}>
-                    <img src="./ubee-icon.png" alt='' className='mb-1 right-100 sticky max-h-4rem max-w-4rem' />
-                    <div dangerouslySetInnerHTML={{ __html: ubee! }} />
-                </Card>
-            </TabPanel>
-            <TabPanel header={more} leftIcon="pi pi-plus mr-2">
-            <Card title={morocco_title} ref={morocco_ref} className={classNames('lg:col-9 xl:col-9 bg-gray-800 shadow-8 mb-2', { 'fadeinleft animation-duration-1000 animation-iteration-1': morocco_visible },
-                    { 'fadeoutleft animation-duration-1000 animation-iteration-1': !morocco_visible })}>
-                        <div className='grid'>
-                            <div className='lg:col-6 xl:col-6'>
-                        <div dangerouslySetInnerHTML={{ __html: morocco! }} />
-                            </div>
-                            <div className='lg:col-6 xl:col-6'>
-                    <Carousel value={mor_images} numVisible={1} numScroll={1} className="custom-carousel relative w-5 lg:w-12 xl:w-12" circular
-                        autoplayInterval={1500} itemTemplate={imageTemplate} />
-                            </div>
-                        </div>
-                </Card>
-                <Card title={me_title} ref={me_ref} className={classNames('lg:col-offset-3 xl:col-offset-3 bg-gray-800 shadow-8 mb-2', { 'fadeinright animation-duration-1000 animation-iteration-1': me_visible },
-                    { 'fadeoutright animation-duration-1000 animation-iteration-1': !me_visible })}>
-                        <div className='grid'>
-                            <div className='lg:col-6 xl:col-6'>
-                        <div dangerouslySetInnerHTML={{ __html: me! }} />
-                            </div>
-                            <div className='lg:col-6 xl:col-6'>
-                    <Carousel value={me_images} numVisible={1} numScroll={1} className="custom-carousel relative" circular
-                        autoplayInterval={1500} itemTemplate={imageTemplate} />
-                            </div>
-                        </div>
-                </Card>
-                <Card title={soccer_title} ref={soccer_ref} className={classNames('lg:col-9 xl:col-9 bg-gray-800 shadow-8 mb-2', { 'fadeinleft animation-duration-1000 animation-iteration-1': soccer_visible },
-                    { 'fadeoutleft animation-duration-1000 animation-iteration-1': !soccer_visible })}>
-                        <div className='grid'>
-                            <div className='lg:col-6 xl:col-6'>
-                        <div dangerouslySetInnerHTML={{ __html: soccer! }} />
-                            </div>
-                            <div className='lg:col-6 xl:col-6'>
-                    <Carousel value={socc_images} numVisible={1} numScroll={1} className="custom-carousel relative" circular
-                        autoplayInterval={1500} itemTemplate={imageTemplate} />
-                            </div>
-                        </div>
-                </Card>
-                <Card title={gym_title} ref={gym_ref} className={classNames('lg:col-offset-3 xl:col-offset-3 bg-gray-800 shadow-8', { 'fadeinright animation-duration-1000 animation-iteration-1': gym_visible },
-                    { 'fadeoutright animation-duration-1000 animation-iteration-1': !gym_visible })}>
-                        <div className='grid'>
-                            <div className='lg:col-6 xl:col-6'>
-                        <div dangerouslySetInnerHTML={{ __html: gym! }} />
-                            </div>
-                            <div className='lg:col-6 xl:col-6'>
-                    <Carousel value={gym_images} numVisible={1} numScroll={1} className="custom-carousel relative" circular
-                        autoplayInterval={1500} itemTemplate={imageTemplate} />
-                            </div>
-                        </div>
-                </Card>
-            </TabPanel>
-        </TabView>
-    )
-}
+      </TabView>
+    </div>
+  );
+};
 
 export default About;

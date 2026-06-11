@@ -1,0 +1,246 @@
+/* ─── Reveal animations (fire once, never reset) ──────────────────────────── */
+.reveal-hidden {
+  opacity: 0;
+  /* No transform here — avoids layout shift before JS runs */
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .reveal-hidden {
+    transform: translateX(-24px);
+  }
+
+  .reveal-left {
+    animation: slideInLeft 0.55s cubic-bezier(0.22, 1, 0.36, 1) both;
+  }
+
+  .reveal-right {
+    animation: slideInRight 0.55s cubic-bezier(0.22, 1, 0.36, 1) both;
+  }
+}
+
+/* If reduced motion is preferred, just fade in with no translate */
+@media (prefers-reduced-motion: reduce) {
+  .reveal-left,
+  .reveal-right {
+    animation: fadeInSimple 0.4s ease both;
+  }
+}
+
+@keyframes slideInLeft {
+  from { opacity: 0; transform: translateX(-32px); }
+  to   { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes slideInRight {
+  from { opacity: 0; transform: translateX(32px); }
+  to   { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes fadeInSimple {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+/* ─── About page wrapper ───────────────────────────────────────────────────── */
+.about-page {
+  padding-top: var(--space-8);
+  padding-bottom: var(--space-24);
+}
+
+/* ─── Experience list ──────────────────────────────────────────────────────── */
+.exp-list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-6);
+  padding-top: var(--space-4);
+}
+
+/* ─── Experience card ──────────────────────────────────────────────────────── */
+.exp-card {
+  background: var(--bg-elevated);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: var(--space-6);
+  max-width: 720px;
+  transition: border-color var(--transition-base), box-shadow var(--transition-base);
+}
+
+.exp-card:hover {
+  border-color: var(--border-interactive);
+  box-shadow: var(--shadow-md);
+}
+
+.exp-card--left  { margin-right: auto; }
+.exp-card--right { margin-left: auto; }
+
+/* Card header */
+.exp-card__header {
+  display: flex;
+  align-items: center;
+  gap: var(--space-4);
+  margin-bottom: var(--space-4);
+}
+
+.exp-card__logo {
+  width: 40px;
+  height: 40px;
+  object-fit: contain;
+  border-radius: var(--radius-sm);
+  flex-shrink: 0;
+}
+
+.exp-card__meta {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+}
+
+.exp-card__title {
+  font-size: var(--text-lg);
+  font-weight: 600;
+  color: var(--text-primary);
+  letter-spacing: -0.02em;
+}
+
+.exp-card__period {
+  font-size: var(--text-xs);
+  font-family: var(--font-mono);
+  color: var(--text-tertiary);
+  letter-spacing: 0.03em;
+}
+
+/* Card body */
+.exp-card__body {
+  font-size: var(--text-sm);
+  line-height: 1.75;
+  color: var(--text-secondary);
+}
+
+.exp-card__body p {
+  font-size: var(--text-sm);
+  margin-bottom: var(--space-3);
+}
+
+.exp-card__body p:last-child {
+  margin-bottom: 0;
+}
+
+/* Tech tags */
+.exp-card__tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+  margin-top: var(--space-4);
+  padding-top: var(--space-4);
+  border-top: 1px solid var(--border);
+}
+
+.exp-tag {
+  display: inline-block;
+  padding: var(--space-1) var(--space-3);
+  background: var(--accent-muted);
+  color: var(--accent);
+  border: 1px solid var(--accent-border);
+  border-radius: var(--radius-sm);
+  font-size: var(--text-xs);
+  font-family: var(--font-mono);
+  font-weight: 500;
+  letter-spacing: 0.02em;
+}
+
+/* ─── Personal list ────────────────────────────────────────────────────────── */
+.personal-list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-8);
+  padding-top: var(--space-4);
+}
+
+/* ─── Personal card ────────────────────────────────────────────────────────── */
+.personal-card {
+  background: var(--bg-elevated);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: var(--space-6);
+  max-width: 860px;
+  transition: border-color var(--transition-base), box-shadow var(--transition-base);
+}
+
+.personal-card:hover {
+  border-color: var(--border-interactive);
+  box-shadow: var(--shadow-md);
+}
+
+.personal-card--left  { margin-right: auto; }
+.personal-card--right { margin-left: auto; }
+
+.personal-card__title {
+  font-size: var(--text-xl);
+  font-weight: 600;
+  color: var(--text-primary);
+  letter-spacing: -0.02em;
+  margin-bottom: var(--space-5);
+}
+
+.personal-card__grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-6);
+  align-items: start;
+}
+
+.personal-card__text {
+  font-size: var(--text-sm);
+  line-height: 1.75;
+  color: var(--text-secondary);
+}
+
+.personal-card__text p {
+  font-size: var(--text-sm);
+  margin-bottom: var(--space-3);
+}
+
+.personal-card__text p:last-child {
+  margin-bottom: 0;
+}
+
+/* ─── Carousel ─────────────────────────────────────────────────────────────── */
+.carousel-slide {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: var(--space-2);
+}
+
+.carousel-slide__img {
+  width: 100%;
+  max-height: 280px;
+  object-fit: cover;
+  border-radius: var(--radius-md);
+  border: 1px solid var(--border);
+}
+
+/* ─── Responsive ───────────────────────────────────────────────────────────── */
+@media (max-width: 767px) {
+  .exp-card--left,
+  .exp-card--right {
+    margin-left: 0;
+    margin-right: 0;
+    max-width: 100%;
+  }
+
+  .personal-card--left,
+  .personal-card--right {
+    margin-left: 0;
+    margin-right: 0;
+    max-width: 100%;
+  }
+
+  .personal-card__grid {
+    grid-template-columns: 1fr;
+  }
+
+  .carousel-slide__img {
+    max-height: 220px;
+  }
+}

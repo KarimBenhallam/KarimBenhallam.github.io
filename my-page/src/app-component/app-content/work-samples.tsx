@@ -1,23 +1,20 @@
-import { Splitter, SplitterPanel } from 'primereact/splitter';
-import { TabMenu } from 'primereact/tabmenu';
-import { useLanguageContext } from "../../contexts/language-context";
-import { getTextFromJSON } from "../../utils/languageUtils";
 import { useState, useRef } from 'react';
+import { useLanguageContext } from '../../contexts/language-context';
+import { getTextFromJSON } from '../../utils/languageUtils';
 import { classNames } from 'primereact/utils';
 import Players from '../projects/players';
+import './work-samples.css';
 
-type Project = "ubee" | "web" | "snake"  | "api";
+type Project = 'ubee' | 'web' | 'snake' | 'api';
 
 const UbeeIcon = () => (
-  <svg viewBox="0 0 26 26" width="1.2em" height="1.2em" fill="currentColor" style={{ marginRight: '0.5rem' }}>
+  <svg viewBox="0 0 26 26" width="1em" height="1em" fill="currentColor" aria-hidden="true">
     <defs>
       <mask id="ubeeDollarMask">
         <rect width="26" height="26" fill="white" />
-        {/* $ punched out of the white circle — reveals house color beneath */}
         <text x="19.5" y="21.5" textAnchor="middle" fontSize="8" fontWeight="900" fontFamily="sans-serif" fill="black">$</text>
       </mask>
     </defs>
-    {/* Mask applied to the group cuts $ through both house and circle → shows background */}
     <g mask="url(#ubeeDollarMask)">
       <path fillRule="evenodd" d="M13 2L1 11.5h3V22h18V11.5h3L13 2z M8 13h3v3H8z M12 13h3v3h-3z M8 17h3v3H8z M12 17h3v3h-3z" />
       <circle cx="19.5" cy="19" r="5" fill="white" />
@@ -25,40 +22,70 @@ const UbeeIcon = () => (
   </svg>
 );
 
+interface ProjectMeta {
+  key: Project;
+  labelEn: string;
+  labelFr: string;
+  icon: React.ReactNode;
+  badgeEn?: string;
+  badgeFr?: string;
+}
+
+const PROJECTS: ProjectMeta[] = [
+  {
+    key: 'ubee',
+    labelEn: 'Ubee',
+    labelFr: 'Ubee',
+    icon: <UbeeIcon />,
+    badgeEn: 'Professional',
+    badgeFr: 'Professionnel',
+  },
+  {
+    key: 'api',
+    labelEn: 'Web API',
+    labelFr: 'Api Web',
+    icon: <i className="pi pi-server" />,
+    badgeEn: 'Live demo',
+    badgeFr: 'Démo live',
+  },
+  {
+    key: 'web',
+    labelEn: 'This site',
+    labelFr: 'Ce site',
+    icon: <i className="pi pi-globe" />,
+  },
+  {
+    key: 'snake',
+    labelEn: 'Snake',
+    labelFr: 'Serpent',
+    icon: <i className="pi pi-bolt" />,
+    badgeEn: 'Playable',
+    badgeFr: 'Jouable',
+  },
+];
+
 const Work = () => {
-  //context
-  const context = useLanguageContext();
+  const { language } = useLanguageContext();
+  const isEn = language === 'en';
+  const t = (key: string) => getTextFromJSON(language, key);
 
-  //links
-  const webLink = "https://github.com/KarimBenhallam/KarimBenhallam.github.io/blob/main/my-page/README.md";
-  const snakeLink = "https://github.com/KarimBenhallam/KarimBenhallam.github.io/blob/main/my-page/public/work_samples/snake/README.md";
-  const apiLink = "https://github.com/KarimBenhallam/KarimBenhallam.github.io/blob/main/C%23Project/README.md";
-  const ubeeLink = context.language === "en" ? "https://ubee.com/en/" : "https://ubee.com/";
+  const webLink   = 'https://github.com/KarimBenhallam/KarimBenhallam.github.io/blob/main/my-page/README.md';
+  const snakeLink = 'https://github.com/KarimBenhallam/KarimBenhallam.github.io/blob/main/my-page/public/work_samples/snake/README.md';
+  const apiLink   = 'https://github.com/KarimBenhallam/KarimBenhallam.github.io/blob/main/C%23Project/README.md';
+  const ubeeLink  = isEn ? 'https://ubee.com/en/' : 'https://ubee.com/';
 
-  //states
-  const [project, setProject] = useState<Project>("ubee");
-  const [isWindowOpen, setIsWindowOpen] = useState(false);
-  const [link, setLink] = useState(ubeeLink);
-
-
-
-  //json constants
-  const intro = getTextFromJSON(context.language, "work_content.intro");
-  const website_text = getTextFromJSON(context.language, "work_content.website_text");
-  const website = getTextFromJSON(context.language, "work_content.website");
-  const snake = getTextFromJSON(context.language, "work_content.snake");
-  const api = getTextFromJSON(context.language, "work_content.api");
-  const button = getTextFromJSON(context.language, "work_content.button");
-  const button_ubee = getTextFromJSON(context.language, "work_content.button_ubee");
-
-
-
+  const [project, setProject] = useState<Project>('ubee');
+  const [snakeOpened, setSnakeOpened] = useState(false);
   const snakeIframeRef = useRef<HTMLIFrameElement>(null);
 
-  const runSnake = () => {
-    window.open(`${window.location.origin}/work_samples/snake/build/web/index.html`, "snakeFrame")
-    setIsWindowOpen(true);
+  const linkMap: Record<Project, string | undefined> = {
+    ubee:  undefined,
+    web:   webLink,
+    snake: snakeLink,
+    api:   apiLink,
   };
+
+  const currentLink = linkMap[project];
 
   const suppressSnakeLeavePrompt = () => {
     try {
@@ -70,83 +97,127 @@ const Work = () => {
     } catch (_) {}
   };
 
-
-  const items = [
-      {
-      label: "Ubee",
-      icon: <UbeeIcon />,
-      command: () => {
-        setProject("ubee")
-        setLink(ubeeLink);
-      }
-    },
-    {
-      label: website,
-      icon: 'pi pi-globe',
-      command: () => {
-        setProject("web")
-        setLink(webLink);
-      }
-    },
-    {
-      label: snake,
-      icon: 'pi pi-bolt',
-      command: () => {
-        setProject("snake")
-        setLink(snakeLink);
-        if (!isWindowOpen) {
-          runSnake();
-        }
-      }
-    },
-    {
-      label: api,
-      icon: 'pi pi-server',
-      command: () => {
-        setProject("api")
-        setLink(apiLink);
-      }
-    },
-  ];
-
+  const handleProjectSelect = (key: Project) => {
+    setProject(key);
+    if (key === 'snake' && !snakeOpened) {
+      window.open(
+        `${window.location.origin}/work_samples/snake/build/web/index.html`,
+        'snakeFrame'
+      );
+      setSnakeOpened(true);
+    }
+  };
 
   return (
-    // this line was needed so the content was centered in variuous browsers
-    //the previous version only worked on firefox
-    <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', textAlign: 'center' }}>
-      <Splitter className="w-11 max-h-screen">
-        <SplitterPanel className="flex flex-column" size={25}>
-          <div dangerouslySetInnerHTML={{ __html: intro! }} />
-          <div className='justify-content-center'>
-            <a href={project !== "ubee" ? link : undefined} target="_blank" rel="noopener noreferrer" className={`p-button font-bold mb-2${project === "ubee" ? " p-disabled" : ""}`} aria-disabled={project === "ubee"}>{project === "ubee" ? button_ubee : button}</a>
-          </div>
-        </SplitterPanel>
+    <div className="work-page kb-container">
 
+      {/* ── Section header ───────────────────────────────────────────────── */}
+      <div className="work-page__header">
+        <h2 className="work-page__title">
+          {isEn ? 'Projects' : 'Projets'}
+        </h2>
+        <p className="work-page__sub">
+          {isEn
+            ? 'A selection of professional and personal work.'
+            : 'Une sélection de travaux professionnels et personnels.'}
+        </p>
+      </div>
 
-        <SplitterPanel className="flex justify-content-center" size={75} minSize={50}>
-          <div className='relative w-full'>
-            <TabMenu model={items} />
-            <div style={{ height: '45rem', overflowY: project === 'snake' ? 'hidden' : 'auto', padding: '0.75rem' }}>
-              {/* iframe needs to always exist as it's the target of window.open */}
-              <iframe ref={snakeIframeRef} title='snakeFrame' name='snakeFrame' className={classNames('w-full h-full', { hidden: project !== "snake" })} onLoad={suppressSnakeLeavePrompt}></iframe>
+      {/* ── Layout ───────────────────────────────────────────────────────── */}
+      <div className="work-layout">
 
-              {project === "ubee" && (
+        {/* Sidebar */}
+        <aside className="work-sidebar">
+          <p className="work-sidebar__intro" dangerouslySetInnerHTML={{ __html: t('work_content.intro')! }} />
+          {currentLink ? (
+            <a
+              href={currentLink}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="work-sidebar__btn"
+            >
+              <i className="pi pi-github" />
+              {isEn ? 'View repository' : 'Voir le code source'}
+            </a>
+          ) : (
+            <span className="work-sidebar__btn work-sidebar__btn--disabled" aria-disabled="true">
+              <i className="pi pi-lock" />
+              {t('work_content.button_ubee')}
+            </span>
+          )}
+        </aside>
+
+        {/* Main panel */}
+        <div className="work-main">
+
+          {/* Project tabs */}
+          <nav className="work-tabs" role="tablist" aria-label={isEn ? 'Projects' : 'Projets'}>
+            {PROJECTS.map(p => (
+              <button
+                key={p.key}
+                role="tab"
+                aria-selected={project === p.key}
+                className={classNames('work-tab', { 'work-tab--active': project === p.key })}
+                onClick={() => handleProjectSelect(p.key)}
+              >
+                <span className="work-tab__icon">{p.icon}</span>
+                <span className="work-tab__label">{isEn ? p.labelEn : p.labelFr}</span>
+                {(p.badgeEn) && (
+                  <span className="work-tab__badge">
+                    {isEn ? p.badgeEn : p.badgeFr}
+                  </span>
+                )}
+              </button>
+            ))}
+          </nav>
+
+          {/* Project content */}
+          <div className="work-content" role="tabpanel">
+
+            {/* name="snakeFrame" is the window.open target — must match exactly */}
+            <iframe
+              ref={snakeIframeRef}
+              name="snakeFrame"
+              title={isEn ? 'Snake game' : 'Jeu Snake'}
+              className={classNames('work-content__snake', { hidden: project !== 'snake' })}
+              onLoad={suppressSnakeLeavePrompt}
+            />
+
+            {project === 'ubee' && (
+              <div className="work-content__ubee">
                 <a href={ubeeLink} target="_blank" rel="noreferrer">
-                  <img src="/ubee_landing_page.png" alt="Ubee" className='mt-3' style={{ maxWidth: '100%', maxHeight: '100%', objectFit: 'contain' }} />
+                  <img
+                    src="/ubee_landing_page.png"
+                    alt="Ubee platform landing page"
+                    className="work-content__ubee-img"
+                  />
                 </a>
-              )}
+              </div>
+            )}
 
-              {project === "web" && (
-                <div dangerouslySetInnerHTML={{ __html: website_text! }} className='mt-5' />
-              )}
+            {project === 'web' && (
+              <div
+                className="work-content__text"
+                dangerouslySetInnerHTML={{ __html: t('work_content.website_text')! }}
+              />
+            )}
 
-              {project === "api" && (
+            {project === 'api' && (
+              <div className="work-content__api">
+                <div className="work-content__api-note">
+                  <i className="pi pi-info-circle" aria-hidden="true" />
+                  <span>
+                    {isEn
+                      ? 'Live data fetched from an AWS Lambda function via REST API.'
+                      : 'Données en direct récupérées via une fonction AWS Lambda (API REST).'}
+                  </span>
+                </div>
                 <Players />
-              )}
-            </div>
+              </div>
+            )}
           </div>
-        </SplitterPanel>
-      </Splitter>
+        </div>
+      </div>
     </div>
   );
 };

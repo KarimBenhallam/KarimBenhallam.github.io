@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import { Menubar } from 'primereact/menubar';
 import { Language, useLanguageContext } from '../contexts/language-context';
 import { Content, useContentContext } from '../contexts/content_context';
@@ -35,6 +36,7 @@ const KBMark = () => (
 const CustomMenu = ({ onShareData }: CustomMenuProps) => {
   const { language, setLanguage } = useLanguageContext();
   const { content, setContent } = useContentContext();
+  const [mobileOpen, setMobileOpen] = useState(false);
 
   const handleContentChange = (selected: Content) => {
     setContent(selected);
@@ -84,8 +86,10 @@ const CustomMenu = ({ onShareData }: CustomMenuProps) => {
 
   return (
     <header>
+      {/* Desktop nav — hidden on mobile via CSS */}
       <Menubar
         model={menuItems}
+        className="kb-desktop-nav"
         start={
           <button
             className="kb-logo-btn"
@@ -97,6 +101,45 @@ const CustomMenu = ({ onShareData }: CustomMenuProps) => {
         }
         end={languageToggle}
       />
+
+      {/* Mobile nav — hidden on desktop via CSS */}
+      <div className="kb-mobile-nav">
+        <div className="kb-mobile-nav__bar">
+          <button
+            className="kb-logo-btn"
+            onClick={() => { handleContentChange('home'); setMobileOpen(false); }}
+            aria-label="Go to home"
+          >
+            <KBMark />
+          </button>
+          <div className="kb-mobile-nav__controls">
+            {languageToggle}
+            <button
+              className="kb-hamburger"
+              onClick={() => setMobileOpen(o => !o)}
+              aria-label={mobileOpen ? 'Close menu' : 'Open menu'}
+              aria-expanded={mobileOpen}
+            >
+              <i className={`pi ${mobileOpen ? 'pi-times' : 'pi-bars'}`} aria-hidden="true" />
+            </button>
+          </div>
+        </div>
+
+        {mobileOpen && (
+          <nav className="kb-mobile-nav__panel">
+            {navItems.map(item => (
+              <button
+                key={item.key}
+                className={`kb-mobile-nav__item${content === item.key ? ' kb-mobile-nav__item--active' : ''}`}
+                onClick={() => { handleContentChange(item.key); setMobileOpen(false); }}
+              >
+                <i className={`${item.icon} kb-mobile-nav__item-icon`} aria-hidden="true" />
+                {item.label}
+              </button>
+            ))}
+          </nav>
+        )}
+      </div>
     </header>
   );
 };

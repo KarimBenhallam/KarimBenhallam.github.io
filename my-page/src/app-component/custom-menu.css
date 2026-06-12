@@ -53,3 +53,105 @@
   font-size: var(--text-sm);
   user-select: none;
 }
+
+/* ─── Desktop / Mobile visibility ─────────────────────────────────────────── */
+.kb-mobile-nav {
+  display: none;
+}
+
+@media (max-width: 767px) {
+  .kb-desktop-nav {
+    display: none !important;
+  }
+
+  .kb-mobile-nav {
+    display: block;
+    background: rgba(10, 10, 11, 0.85);
+    border-bottom: 1px solid var(--border);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+  }
+}
+
+/* ─── Mobile nav bar row ───────────────────────────────────────────────────── */
+.kb-mobile-nav__bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--space-2) var(--space-4);
+}
+
+.kb-mobile-nav__controls {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+}
+
+/* ─── Hamburger toggle ─────────────────────────────────────────────────────── */
+.kb-hamburger {
+  background: none;
+  border: none;
+  padding: var(--space-2);
+  cursor: pointer;
+  color: var(--text-secondary);
+  border-radius: var(--radius-md);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: var(--text-base);
+  line-height: 1;
+  transition: background var(--transition-fast), color var(--transition-fast);
+}
+
+.kb-hamburger:hover {
+  background: var(--bg-subtle);
+  color: var(--text-primary);
+}
+
+/* ─── Mobile nav panel ─────────────────────────────────────────────────────── */
+.kb-mobile-nav__panel {
+  border-top: 1px solid var(--border);
+  padding: var(--space-2);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+}
+
+/* ─── Mobile nav items ─────────────────────────────────────────────────────── */
+.kb-mobile-nav__item {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  width: 100%;
+  padding: var(--space-3) var(--space-4);
+  background: none;
+  border: none;
+  border-radius: var(--radius-md);
+  color: var(--text-secondary);
+  font-size: var(--text-sm);
+  font-weight: 500;
+  font-family: var(--font-sans);
+  cursor: pointer;
+  text-align: left;
+  transition: background var(--transition-fast), color var(--transition-fast);
+}
+
+.kb-mobile-nav__item:hover {
+  background: var(--bg-subtle);
+  color: var(--text-primary);
+}
+
+.kb-mobile-nav__item--active {
+  background: var(--accent-muted);
+  color: var(--text-primary);
+}
+
+.kb-mobile-nav__item-icon {
+  color: var(--text-tertiary);
+  font-size: var(--text-sm);
+  transition: color var(--transition-fast);
+}
+
+.kb-mobile-nav__item--active .kb-mobile-nav__item-icon {
+  color: var(--accent);
+}

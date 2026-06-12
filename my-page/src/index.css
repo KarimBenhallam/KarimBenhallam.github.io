@@ -216,6 +216,41 @@ header {
   color: var(--accent) !important;
 }
 
+/* Mobile hamburger button */
+.p-menubar .p-menubar-button {
+  color: var(--text-secondary) !important;
+  background: transparent !important;
+  border: none !important;
+  padding: var(--space-2) !important;
+  border-radius: var(--radius-md) !important;
+  cursor: pointer !important;
+  transition: background var(--transition-fast), color var(--transition-fast) !important;
+}
+
+.p-menubar .p-menubar-button:hover {
+  background: var(--bg-subtle) !important;
+  color: var(--text-primary) !important;
+}
+
+/* Mobile nav panel (expands inline when hamburger is active) */
+.p-menubar.p-menubar-mobile-active .p-menubar-root-list {
+  background: var(--bg-elevated) !important;
+  border: 1px solid var(--border-interactive) !important;
+  border-radius: 0 0 var(--radius-lg) var(--radius-lg) !important;
+  padding: var(--space-2) !important;
+  box-shadow: var(--shadow-md) !important;
+  width: 100% !important;
+}
+
+.p-menubar.p-menubar-mobile-active .p-menubar-root-list > .p-menuitem {
+  width: 100% !important;
+}
+
+.p-menubar.p-menubar-mobile-active .p-menubar-root-list > .p-menuitem > .p-menuitem-content > .p-menuitem-link {
+  padding: var(--space-3) var(--space-4) !important;
+  border-radius: var(--radius-md) !important;
+}
+
 /* Dropdown (language toggle) */
 .p-dropdown {
   background: transparent !important;
@@ -518,5 +553,21 @@ header {
 
   .p-menubar {
     padding: var(--space-2) var(--space-4) !important;
+  }
+
+  /* TabView nav: scroll horizontally on narrow phones instead of overflowing */
+  .p-tabview .p-tabview-nav {
+    flex-wrap: nowrap !important;
+    overflow-x: auto !important;
+    -webkit-overflow-scrolling: touch !important;
+    scrollbar-width: none !important;
+  }
+
+  .p-tabview .p-tabview-nav::-webkit-scrollbar {
+    display: none !important;
+  }
+
+  .p-tabview .p-tabview-nav li .p-tabview-nav-link {
+    white-space: nowrap !important;
   }
 }

@@ -13,7 +13,7 @@ const Resume = () => {
                 </h2>
                 <a
                     href={src}
-                    download
+                    download={language === 'en' ? 'KarimBenhallamResume.pdf' : 'KarimBenhallamResumeFr.pdf'}
                     className="resume-page__download"
                     aria-label={language === 'en' ? 'Download PDF résumé' : 'Télécharger le CV en PDF'}
                 >
@@ -27,6 +27,11 @@ const Resume = () => {
                 className="resume-page__embed"
                 title={language === 'en' ? 'Résumé PDF' : 'Curriculum Vitae PDF'}
             />
+            <div className="resume-page__mobile-note">
+                <i className="pi pi-file-pdf resume-page__mobile-note-icon" aria-hidden="true" />
+                <p>{language === 'en' ? 'PDF preview is not available on mobile.' : "L'aperçu PDF n'est pas disponible sur mobile."}</p>
+                <p>{language === 'en' ? 'Use the download button above to view the résumé.' : 'Utilisez le bouton de téléchargement ci-dessus pour consulter le CV.'}</p>
+            </div>
         </div>
     );
 };

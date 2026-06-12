@@ -48,6 +48,30 @@
   display: block;
 }
 
+.resume-page__mobile-note {
+  display: none;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-3);
+  text-align: center;
+  padding: var(--space-16) var(--space-6);
+  background: var(--bg-elevated);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+}
+
+.resume-page__mobile-note-icon {
+  font-size: 2.5rem;
+  color: var(--text-tertiary);
+}
+
+.resume-page__mobile-note p {
+  font-size: var(--text-sm);
+  color: var(--text-secondary);
+  margin: 0;
+}
+
 @media (max-width: 767px) {
   .resume-page__header {
     flex-direction: column;
@@ -56,7 +80,10 @@
   }
 
   .resume-page__embed {
-    height: calc(100vh - 240px);
-    min-height: 400px;
+    display: none;
+  }
+
+  .resume-page__mobile-note {
+    display: flex;
   }
 }

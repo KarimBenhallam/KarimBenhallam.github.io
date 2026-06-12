@@ -153,6 +153,16 @@
   letter-spacing: 0.04em;
   margin-top: var(--space-8);
   animation: float 3s ease-in-out infinite;
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  font-family: var(--font-sans);
+  transition: color var(--transition-fast);
+}
+
+.hero__scroll-hint:hover {
+  color: var(--text-secondary);
 }
 
 @keyframes float {

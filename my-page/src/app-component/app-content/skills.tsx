@@ -35,7 +35,7 @@ const Skills = () => {
   const isEn = language === 'en';
 
   return (
-    <section className="skills-section kb-section kb-section-alt">
+    <section id="skills" className="skills-section kb-section kb-section-alt">
       <div className="kb-container">
         <h2 className="skills-section__heading">
           {isEn ? 'Skills & Technologies' : 'Compétences & Technologies'}

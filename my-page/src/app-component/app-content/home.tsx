@@ -81,12 +81,16 @@ const Home = () => {
         </div>
 
         {/* Scroll hint */}
-        <div className="hero__scroll-hint" aria-hidden="true">
+        <button
+          className="hero__scroll-hint"
+          onClick={() => document.getElementById('skills')?.scrollIntoView({ behavior: 'smooth' })}
+          aria-label={isEn ? 'Scroll to skills section' : 'Défiler vers les compétences'}
+        >
           <span>{isEn ? 'Scroll to explore' : 'Défiler pour explorer'}</span>
-          <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
+          <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true">
             <path d="M7 2v10M3 8l4 4 4-4" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
           </svg>
-        </div>
+        </button>
 
       </div>
     </main>

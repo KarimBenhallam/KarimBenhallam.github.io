@@ -84,9 +84,10 @@ The code is fairly simple to understand as this is an easy game to implement. If
 ## Areas of improvement
 - Allow users to edit the speed, leading to customizable difficulty
 - Put text outside of the playable area, making the interface look better
-- In the online version, allow users to leave the game, to get rid of the "are you sure you want to leave this page"
-  pop-up. (see image below) <br><br>
+- ~~In the online version, allow users to leave the game, to get rid of the "are you sure you want to leave this page"
+  pop-up. (see image below)~~ <br><br>
   ![pop-up screenshot](assets/popup.png)<br>
-  I've seen two other pygbag games hosted online, and they both had the same issue. There is definitely a solution
-  to this problem, but I have not looked into it. <br><br>
+  ~~I've seen two other pygbag games hosted online, and they both had the same issue. There is definitely a solution
+  to this problem, but I have not looked into it.~~ <br><br>
+  ✅ Done: Fixed in the React host app: when the snake iframe loads, a capturing `beforeunload` listener is attached to the iframe's `contentWindow`. It calls `stopImmediatePropagation()`, which intercepts pygbag's internal handler before it can trigger the browser's leave-page confirmation dialog.<br><br>
   Enjoy playing the Snake Game!

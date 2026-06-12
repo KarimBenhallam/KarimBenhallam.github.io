@@ -106,7 +106,7 @@ it is highly discouraged to have this kind of policy at production level, as it 
 - Remove the PlayerDTO class from Models folder to avoid confusion
 - Add details about the players (club and country they represented, stats and/or trophies won that year)
 - Develop a website displaying only the data in a similar table to the one on the current website with the added information, as there isn't such a tool available online
-- Work on website SSO in order to help as many people as possible
+- Work on website SEO in order to help as many people as possible
 
 
 

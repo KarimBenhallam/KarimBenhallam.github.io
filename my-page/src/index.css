@@ -422,6 +422,21 @@ header {
   padding: var(--space-3) 0 !important;
 }
 
+.p-datatable .p-datatable-wrapper {
+  overflow-x: auto;
+}
+
+@media (max-width: 767px) {
+  .p-datatable .p-datatable-wrapper {
+    scrollbar-width: none;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .p-datatable .p-datatable-wrapper::-webkit-scrollbar {
+    display: none;
+  }
+}
+
 .p-paginator .p-paginator-page,
 .p-paginator .p-paginator-prev,
 .p-paginator .p-paginator-next,

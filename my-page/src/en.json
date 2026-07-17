@@ -40,7 +40,11 @@
         "api" : "Web Api (C#)",
         "calculator" : "Calculator (C++)",
         "button" : "Click here",
-        "button_ubee" : "Cannot share access to this repository"
+        "button_ubee" : "Cannot share access to this repository",
+        "api_note" : "Live data fetched from an AWS Lambda function via REST API.",
+        "snake_note" : "Snake is played with the keyboard arrow keys, open this on a computer to play.",
+        "swipe_tabs" : "Swipe for more",
+        "swipe_columns" : "Swipe for more columns"
     },
     "table_headers" : {
         "header" : "Ballon D'or Winners",

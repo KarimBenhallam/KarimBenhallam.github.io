@@ -38,7 +38,11 @@
         "snake" : "Serpent (Python)",
         "api" : "Api Web (C#)",
         "button" : "Cliquez ici",
-        "button_ubee" : "Accès à ce projet non disponible"
+        "button_ubee" : "Accès à ce projet non disponible",
+        "api_note" : "Données en direct récupérées via une fonction AWS Lambda (API REST).",
+        "snake_note" : "Snake se joue avec les touches fléchées du clavier, ouvrez cette page sur un ordinateur pour jouer.",
+        "swipe_tabs" : "Glissez pour plus",
+        "swipe_columns" : "Glissez pour plus de colonnes"
     },
     "table_headers" : {
         "header" : "Gagnants du Ballon D'or",

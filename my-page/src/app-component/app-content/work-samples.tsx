@@ -3,6 +3,8 @@ import { useLanguageContext } from '../../contexts/language-context';
 import { getTextFromJSON } from '../../utils/languageUtils';
 import { classNames } from 'primereact/utils';
 import Players from '../projects/players';
+import { useIsMobile } from '../../utils/useIsMobile';
+import SwipeHint from '../swipe-hint';
 import './work-samples.css';
 
 type Project = 'ubee' | 'web' | 'snake' | 'api';
@@ -77,6 +79,7 @@ const Work = () => {
   const [project, setProject] = useState<Project>('ubee');
   const [snakeOpened, setSnakeOpened] = useState(false);
   const snakeIframeRef = useRef<HTMLIFrameElement>(null);
+  const isMobile = useIsMobile();
 
   const linkMap: Record<Project, string | undefined> = {
     ubee:  undefined,
@@ -150,29 +153,43 @@ const Work = () => {
         {/* Main panel */}
         <div className="work-main">
 
-          {/* Project tabs */}
-          <nav className="work-tabs" role="tablist" aria-label={isEn ? 'Projects' : 'Projets'}>
-            {PROJECTS.map(p => (
-              <button
-                key={p.key}
-                role="tab"
-                aria-selected={project === p.key}
-                className={classNames('work-tab', { 'work-tab--active': project === p.key })}
-                onClick={() => handleProjectSelect(p.key)}
-              >
-                <span className="work-tab__icon">{p.icon}</span>
-                <span className="work-tab__label">{isEn ? p.labelEn : p.labelFr}</span>
-                {(p.badgeEn) && (
-                  <span className="work-tab__badge">
-                    {isEn ? p.badgeEn : p.badgeFr}
-                  </span>
-                )}
-              </button>
-            ))}
-          </nav>
+          {/* Project tabs — SwipeHint adds the mobile scroll affordance */}
+          <SwipeHint label={t('work_content.swipe_tabs')}>
+            {(scrollRef) => (
+              <nav ref={scrollRef} className="work-tabs" role="tablist" aria-label={isEn ? 'Projects' : 'Projets'}>
+                {PROJECTS.map(p => (
+                  <button
+                    key={p.key}
+                    role="tab"
+                    aria-selected={project === p.key}
+                    className={classNames('work-tab', { 'work-tab--active': project === p.key })}
+                    onClick={() => handleProjectSelect(p.key)}
+                  >
+                    <span className="work-tab__icon">{p.icon}</span>
+                    <span className="work-tab__label">{isEn ? p.labelEn : p.labelFr}</span>
+                    {(p.badgeEn) && (
+                      <span className="work-tab__badge">
+                        {isEn ? p.badgeEn : p.badgeFr}
+                      </span>
+                    )}
+                  </button>
+                ))}
+              </nav>
+            )}
+          </SwipeHint>
 
           {/* Project content */}
           <div className="work-content" role="tabpanel">
+
+            {/* Snake needs a physical keyboard — warn on mobile */}
+            {project === 'snake' && isMobile && (
+              <div className="work-content__snake-note">
+                <div className="work-content__note">
+                  <i className="pi pi-info-circle" aria-hidden="true" />
+                  <span>{t('work_content.snake_note')}</span>
+                </div>
+              </div>
+            )}
 
             {/* name="snakeFrame" is the window.open target — must match exactly */}
             <iframe
@@ -187,7 +204,7 @@ const Work = () => {
               <div className="work-content__ubee">
                 <a href={ubeeLink} target="_blank" rel="noreferrer">
                   <img
-                    src="/ubee_landing_page.png"
+                    src={isMobile ? '/ubee_landing_page_mobile.png' : '/ubee_landing_page.png'}
                     alt="Ubee platform landing page"
                     className="work-content__ubee-img"
                   />
@@ -204,15 +221,20 @@ const Work = () => {
 
             {project === 'api' && (
               <div className="work-content__api">
-                <div className="work-content__api-note">
+                <div className="work-content__note">
                   <i className="pi pi-info-circle" aria-hidden="true" />
-                  <span>
-                    {isEn
-                      ? 'Live data fetched from an AWS Lambda function via REST API.'
-                      : 'Données en direct récupérées via une fonction AWS Lambda (API REST).'}
-                  </span>
+                  <span>{t('work_content.api_note')}</span>
                 </div>
-                <Players />
+                <SwipeHint
+                  scrollSelector=".p-datatable-wrapper"
+                  label={t('work_content.swipe_columns')}
+                >
+                  {(scrollRef) => (
+                    <div ref={scrollRef}>
+                      <Players />
+                    </div>
+                  )}
+                </SwipeHint>
               </div>
             )}
           </div>

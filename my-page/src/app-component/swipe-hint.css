@@ -1,0 +1,56 @@
+/* ─── Swipe hint (mobile scroll affordance) ────────────────────────────────── */
+.swipe-hint {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-2);
+  padding: var(--space-1) 0 var(--space-2);
+}
+
+.swipe-hint__label {
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  color: var(--text-tertiary);
+  text-transform: uppercase;
+  user-select: none;
+}
+
+.swipe-hint__arrow {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
+  padding: 0;
+  background: none;
+  border: none;
+  border-radius: 99px;
+  color: var(--accent);
+  cursor: pointer;
+  font-size: 12px;
+  transition: opacity var(--transition-fast), transform var(--transition-fast);
+}
+
+/* Nudge the enabled arrows to draw the eye toward swiping */
+.swipe-hint__arrow:not(:disabled) {
+  animation: swipeHintNudge 1.6s ease-in-out infinite;
+}
+
+.swipe-hint__arrow:first-child:not(:disabled) { animation-direction: alternate-reverse; }
+
+.swipe-hint__arrow:disabled {
+  color: var(--text-tertiary);
+  opacity: 0.25;
+  cursor: default;
+  animation: none;
+}
+
+@keyframes swipeHintNudge {
+  0%, 100% { transform: translateX(0); }
+  50%      { transform: translateX(3px); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .swipe-hint__arrow:not(:disabled) { animation: none; }
+}

@@ -189,10 +189,15 @@
   align-items: start;
 }
 
+.personal-card__grid > * {
+  min-width: 0;
+}
+
 .personal-card__text {
   font-size: var(--text-sm);
   line-height: 1.75;
   color: var(--text-secondary);
+  overflow-wrap: break-word;
 }
 
 .personal-card__text p {
